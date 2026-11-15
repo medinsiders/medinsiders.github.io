@@ -62,6 +62,9 @@ section{padding-top:84px}
 .thead h1{font-size:clamp(38px,6vw,64px);line-height:1.02;font-weight:800;color:#fff;letter-spacing:-.02em;margin:0;text-shadow:0 2px 14px rgba(0,0,0,.45)}
 .tlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,500px),1fr));gap:18px;padding-bottom:8px}
 .card{background:#fff;border:1px solid var(--line);box-shadow:var(--sh);border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.lg{display:grid;place-items:center;height:72px;min-width:72px;max-width:min(220px,62%);padding:8px 12px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden}
+.lg img{display:block;height:56px;width:auto;max-width:100%;object-fit:contain}
+.lg.mono{background:var(--tile);border-color:#dbe4f5;box-shadow:none;font-family:Outfit,sans-serif;font-size:26px;font-weight:800;letter-spacing:.02em;color:var(--navy)}
 .card .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .type{font-size:16px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em}
 .badge{display:inline-flex;align-items:center;gap:7px;font-size:16px;font-weight:700;padding:7px 15px;border-radius:999px}

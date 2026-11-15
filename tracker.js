@@ -20,19 +20,16 @@ const fact=(icon,label,val,cls="")=>`<div class="fact ${cls}">${ic(icon)}<small>
 
 function card(o,s){
   const apply=o.applyText||(o.deadline?fmt(o.deadline):null);
+  const fee=o.fee!==undefined?o.fee:o.pay;
+  const mark=o.logo?`<span class="lg"><img src="${esc(o.logo)}" alt="" loading="lazy"></span>`:`<span class="lg mono" aria-hidden="true">${esc(o.mono||(o.short||o.org||"?").slice(0,3).toUpperCase())}</span>`;
   return `<article class="card" data-s="${s}">
-    <div class="top"><span class="type">${esc(o.type)}</span><span class="badge s-${s}">${LABEL[s]}</span></div>
+    <div class="top">${mark}<span class="badge s-${s}">${LABEL[s]}</span></div>
     <h3>${esc(o.name)}</h3>
     <p class="org">${ic("pin")}${esc([o.org,o.place].filter(Boolean).join(" · "))}</p>
-    ${o.about?`<p class="about">${esc(o.about)}</p>`:""}
     <div class="facts">
-      ${fact("cap","Who can apply",o.who)}
-      ${fact("rupee","Pay / cost",o.pay)}
-      ${fact("cal","Dates",o.dates)}
-      ${fact("clock","Apply by",apply)}
-      ${o.benefits?fact("check","What you get",o.benefits,"wide"):""}
+      ${fact("clock",kind=="conferences"?"Deadline":"Apply by",apply,kind=="conferences"?"":"wide")}
+      ${kind=="conferences"?fact("rupee","Registration fee",fee):""}
     </div>
-    ${(o.perks||[]).length?`<div class="links">${o.perks.map(p=>`<span class="lk">${ic("check")}${esc(p)}</span>`).join("")}</div>`:""}
     <div class="links">${(o.links||[]).map(l=>`<a class="lk" href="${esc(l.u)}" target="_blank" rel="noopener">${ic(l.k,l.k)}${esc(l.t)}</a>`).join("")}</div>
     ${o.checked?`<p class="chk">Checked on the official site, ${fmt(o.checked)}</p>`:""}
   </article>`;
