@@ -12,15 +12,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap">
-<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="base.css?v=4">
 <style>
 /* hero */
 .herobg{margin-top:-78px;padding-top:78px;background:radial-gradient(55% 75% at 88% 45%,#dbe8ff 0%,rgba(219,232,255,0) 70%),radial-gradient(40% 50% at 0% 0%,#eef2ff 0%,rgba(238,242,255,0) 70%),#fff;overflow:hidden}
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding-top:56px;padding-bottom:72px}
-.pill{display:inline-flex;align-items:center;gap:8px;font-family:Outfit,sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:#fff;border:1.5px solid #ffd6e4;border-radius:999px;padding:9px 16px;box-shadow:0 4px 14px rgba(236,72,153,.1);margin-bottom:26px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:Outfit,sans-serif;font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:#fff;border:1.5px solid #ffc2d8;border-radius:999px;padding:9px 16px;box-shadow:0 4px 14px rgba(236,72,153,.1);margin-bottom:26px}
 .pill .ico{color:#ec4899}
 .hero h1{font-size:clamp(42px,6.4vw,76px);line-height:1.02;font-weight:800;color:var(--ink);letter-spacing:-.025em;margin:0 0 22px}
-.hero .sub{font-size:clamp(17px,2vw,21px);color:#667085;max-width:520px;margin:0 0 32px}
+.hero .sub{font-size:clamp(20px,2.3vw,25px);line-height:1.4;color:#344054;max-width:540px;margin:0 0 34px}
 .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .socs{display:flex;gap:10px;margin-top:28px}
 .hv{position:relative;display:grid;place-items:center;padding:30px}
@@ -32,8 +32,8 @@
 .float:hover{text-decoration:none}
 .float .ib{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#173b8f,#2563eb);display:grid;place-items:center;color:#fff}
 .float .ib .ico{width:22px;height:22px}
-.float b{font-family:Outfit,sans-serif;font-size:26px;line-height:1;font-weight:800;display:block}
-.float small{font-size:13px;color:var(--body)}
+.float b{font-family:Outfit,sans-serif;font-size:32px;line-height:1;font-weight:800;display:block}
+.float small{font-size:16px;font-weight:500;color:var(--body)}
 .f1{left:-4px;bottom:46px}.f2{right:-2px;top:44px;animation-delay:-2.5s}
 @keyframes bob{50%{transform:translateY(-9px)}}
 
@@ -47,18 +47,18 @@
 .tcard .arr{width:46px;height:46px;border-radius:50%;border:1.5px solid #cfd8ee;display:grid;place-items:center;color:var(--navy)}
 .tcard .arr .ico{width:22px;height:22px}
 .tcard .n{font-size:76px;font-weight:800;line-height:1;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content}
-.tcard .l{font-family:Outfit,sans-serif;font-size:24px;font-weight:700;margin-top:6px}
+.tcard .l{font-family:Outfit,sans-serif;font-size:30px;font-weight:700;margin-top:6px}
 
 /* topic tiles */
 .topics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
-.topic{position:relative;min-height:230px;border-radius:28px;padding:22px;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(180deg,rgba(11,31,77,0) 30%,rgba(11,31,77,.82)),var(--img) center/cover,var(--tile);box-shadow:var(--sh);transition:transform .25s,box-shadow .25s}
+.topic{position:relative;min-height:230px;border-radius:28px;padding:22px;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(180deg,rgba(11,31,77,.05) 15%,rgba(11,31,77,.92)),var(--img) center/cover,var(--tile);box-shadow:var(--sh);transition:transform .25s,box-shadow .25s}
 .topic:hover{transform:translateY(-4px);box-shadow:var(--sh2);text-decoration:none}
-.topic h3{margin:0;font-size:22px;line-height:1.15;font-weight:700}
+.topic h3{margin:0;font-size:26px;line-height:1.15;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 
 /* watch */
-.fnote{margin:-12px 0 20px;font-size:15px}
+.fnote{margin:-12px 0 20px;font-size:18px}
 .sub2{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:48px 0 16px}
-.sub2 b{font-family:Outfit,sans-serif;font-size:24px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:10px}
+.sub2 b{font-family:Outfit,sans-serif;font-size:30px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:10px}
 .arrows{display:flex;gap:8px}
 .arrows button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;box-shadow:var(--sh);cursor:pointer;font-size:20px;line-height:1;transition:all .2s}
 .arrows button:hover{background:var(--navy);border-color:var(--navy);color:#fff}
@@ -74,8 +74,8 @@
 .vid .play i{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center}
 .vid .play i::after{content:"";border-left:16px solid var(--navy);border-block:10px solid transparent;margin-left:4px}
 .vid:hover .play{opacity:1}
-.vid .t{display:block;padding:16px 20px 22px;font-size:15.5px;font-weight:600;line-height:1.35}
-.allbtn{display:block;margin:22px auto 0;background:#fff;border:1.5px solid #cfd8ee;border-radius:999px;padding:11px 24px;font-size:15px;font-weight:600;color:var(--navy);cursor:pointer}
+.vid .t{display:block;padding:18px 22px 24px;font-size:18px;font-weight:600;line-height:1.4}
+.allbtn{display:block;margin:24px auto 0;background:#fff;border:1.5px solid #c4cde0;border-radius:999px;padding:13px 28px;font-size:18px;font-weight:600;color:var(--navy);cursor:pointer}
 .allbtn:hover{border-color:var(--navy)}
 .reels{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;scrollbar-width:none}
 .reels::-webkit-scrollbar{display:none}
@@ -88,11 +88,11 @@
 .avatar{position:relative;width:190px;height:190px;margin:auto;border-radius:50%;padding:5px;background:var(--grad)}
 .avatar b,.avatar img{position:absolute;inset:5px;width:calc(100% - 10px);height:calc(100% - 10px);border-radius:50%;object-fit:cover}
 .avatar b{background:#fff;display:grid;place-items:center;font-family:Outfit,sans-serif;font-size:56px;font-weight:800;color:var(--navy)}
-.founder .role{font-family:Outfit,sans-serif;font-size:13px;font-weight:700;color:#d6336c;text-transform:uppercase;letter-spacing:.12em;margin:0 0 6px}
-.founder h3{font-size:clamp(28px,4vw,40px);line-height:1.08;font-weight:800;color:var(--ink);margin:0 0 10px}
-.founder .tag{font-size:16px;margin:0 0 14px}
-.founder details{margin:0 0 22px;font-size:16px;line-height:1.55}
-.founder summary{cursor:pointer;color:var(--navy);font-weight:600}
+.founder .role{font-family:Outfit,sans-serif;font-size:15px;font-weight:700;color:#a3164d;text-transform:uppercase;letter-spacing:.1em;margin:0 0 6px}
+.founder h3{font-size:clamp(30px,4vw,44px);line-height:1.08;font-weight:800;color:var(--ink);margin:0 0 10px}
+.founder .tag{font-size:19px;font-weight:500;margin:0 0 14px}
+.founder details{margin:0 0 22px;font-size:18px;line-height:1.6}
+.founder summary{cursor:pointer;color:var(--navy);font-weight:700;font-size:18px}
 .founder .links{display:flex;gap:12px;flex-wrap:wrap}
 
 footer .fi{display:flex;gap:14px;align-items:center}
@@ -193,8 +193,8 @@ footer .fi a:hover{opacity:.8}
 
 <footer><div class="in"><span>© Medinsider · Photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico wa"><use href="#wa"/></svg></a></span></div></footer>
 
-<script src="sprite.js"></script>
-<script src="data.js"></script>
+<script src="sprite.js?v=4"></script>
+<script src="data.js?v=4"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 
