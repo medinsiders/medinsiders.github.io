@@ -130,6 +130,8 @@ h2 .dim{color:var(--muted)}
 .avatar::before{content:"";position:absolute;inset:-8px;border-radius:50%;background:conic-gradient(from 0deg,var(--btn),#5ac8fa,#af52de,var(--btn));animation:spin 8s linear infinite;-webkit-mask:radial-gradient(circle,transparent 66%,#000 67%);mask:radial-gradient(circle,transparent 66%,#000 67%)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .avatar b{position:absolute;inset:6px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:64px;font-weight:600;letter-spacing:-.03em;color:var(--navy)}
+.avatar img{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);border-radius:50%;object-fit:cover}
+.founder .tag{font-size:17px;font-weight:600;margin:0 0 14px}
 .founder .role{font-size:14px;font-weight:600;color:var(--btn);text-transform:uppercase;letter-spacing:.08em;margin:0 0 6px}
 .founder h3{font-size:clamp(28px,4vw,40px);line-height:1.1;font-weight:600;margin:0 0 16px}
 .founder p.bio{font-size:19px;line-height:1.4;color:var(--muted);margin:0 0 24px}
@@ -231,11 +233,12 @@ footer a{color:var(--muted)}
   <section id="founder">
     <h2 class="rv">Meet the founder.</h2>
     <div class="founder rv">
-      <div class="avatar" role="img" aria-label="Initials PK"><b>PK</b></div>
+      <div class="avatar"><b>PK</b><img src="founder.jpg" alt="Pavan Kalyan Mukkamula" onerror="this.remove()"></div>
       <div>
         <p class="role">Founder, Medinsider</p>
         <h3>Pavan Kalyan Mukkamula</h3>
-        <p class="bio">Medical intern at AIIMS New Delhi, with research experience in nephrology, medical oncology and neurology. Pavan started Medinsider to help other medical students find real opportunities and write stronger applications.</p>
+        <p class="tag">MBBS student at AIIMS New Delhi · IISc internship · USMLE Step 1 · Research enthusiast</p>
+        <p class="bio">I am an MBBS student at AIIMS New Delhi with a strong interest in biomedical engineering, AI, and technology in healthcare. I am passionate about developing innovative, tech-driven solutions to improve patient care and clinical outcomes. Currently exploring ways to integrate AI and digital health tools into practical healthcare applications. Aspiring to launch my own startup at the intersection of medicine and technology.</p>
         <div class="links">
           <a class="soc" href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="Pavan on LinkedIn" title="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a>
           <a class="soc" href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Medinsider on Instagram" title="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a>
