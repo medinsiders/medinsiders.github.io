@@ -72,11 +72,11 @@ h2 .dim{color:var(--muted)}
 
 /* what we cover: tilt + spotlight */
 .cover{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;perspective:1000px}
-.cover div{position:relative;overflow:hidden;background:var(--tile);border-radius:28px;padding:40px 36px;min-height:210px;transform-style:preserve-3d;transition:transform .25s ease-out}
-.cover div::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(0,113,227,.16),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.cover div{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(0,0,0,.78)),var(--img) center/cover,var(--tile);border-radius:28px;padding:36px;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;transform-style:preserve-3d;transition:transform .25s ease-out}
+.cover div::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
 .cover div:hover::before{opacity:1}
-.cover h3{font-size:28px;line-height:1.14;font-weight:600;letter-spacing:.007em;margin:0 0 12px}
-.cover p{margin:0;color:var(--muted);font-size:19px;line-height:1.3}
+.cover h3{font-size:28px;line-height:1.14;font-weight:600;letter-spacing:.007em;margin:0 0 10px;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.cover p{margin:0;color:rgba(255,255,255,.88);font-size:19px;line-height:1.3;text-shadow:0 1px 10px rgba(0,0,0,.35)}
 
 /* path graphic */
 .path{background:var(--tile);border-radius:28px;padding:40px 36px 32px}
@@ -154,7 +154,7 @@ footer a{color:var(--muted)}
   .nav ul{gap:14px}.nav .logo{width:108px}
   .hero{padding:48px 22px 56px}
   .cover,.connect{grid-template-columns:1fr}
-  .cover div{padding:28px 24px;min-height:0}
+  .cover div{padding:28px 24px;min-height:260px}
   section{padding-top:56px}
   .path{padding:24px 12px 20px}.node text{font-size:13px}
   .founder{grid-template-columns:1fr;gap:32px;padding:32px 24px;text-align:center}
@@ -192,10 +192,10 @@ footer a{color:var(--muted)}
   <section id="cover" style="padding-top:0">
     <h2 class="rv">What we cover. <span class="dim">Everything between you and your next opportunity.</span></h2>
     <div class="cover">
-      <div class="rv"><h3>Verified opportunities</h3><p>Internship, research and scholarship updates you can trust.</p></div>
-      <div class="rv" style="--d:80ms"><h3>SOPs &amp; writing guidance</h3><p>Sample SOPs and step-by-step help with writing your own.</p></div>
-      <div class="rv"><h3>Webinars &amp; mentorship</h3><p>Sessions with scholars and interns who have done it before.</p></div>
-      <div class="rv" style="--d:80ms"><h3>Collaborative learning</h3><p>A community of students learning from each other.</p></div>
+      <div class="rv" style="--img:url(img/opp.jpg)"><h3>Verified opportunities</h3><p>Internship, research and scholarship updates you can trust.</p></div>
+      <div class="rv" style="--d:80ms;--img:url(img/sop.jpg)"><h3>SOPs &amp; writing guidance</h3><p>Sample SOPs and step-by-step help with writing your own.</p></div>
+      <div class="rv" style="--img:url(img/web.jpg)"><h3>Webinars &amp; mentorship</h3><p>Sessions with scholars and interns who have done it before.</p></div>
+      <div class="rv" style="--d:80ms;--img:url(img/collab.jpg)"><h3>Collaborative learning</h3><p>A community of students learning from each other.</p></div>
     </div>
   </section>
 
@@ -254,7 +254,7 @@ footer a{color:var(--muted)}
   </section>
 </main>
 
-<footer><div class="in">© Medinsider · A student-led initiative <span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a></span></div></footer>
+<footer><div class="in">© Medinsider · A student-led initiative · Photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> <span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a></span></div></footer>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
