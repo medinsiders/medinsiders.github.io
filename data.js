@@ -3,6 +3,8 @@
 // To add an entry: copy one object, fill what is known, keep the rest null.
 // deadline (YYYY-MM-DD) makes Open / Closing soon / Closed automatic. Optional: status ("open"|"closed") to set it by hand,
 // applyText to override the "Apply by" line, perks (short chips) for extras like free workshops.
+// Approved community submissions come from this Google Apps Script web app (see backend/Code.gs). Empty = form shows "opens soon".
+window.OPP_API="";
 window.OPP={
 internships:[
 {name:"MedSRT-6",org:"CSIR-CCMB",place:"Hyderabad",type:"Research internship",
