@@ -65,6 +65,8 @@ section{padding-top:84px}
 .type{font-size:16px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em}
 .badge{display:inline-flex;align-items:center;gap:7px;font-size:16px;font-weight:700;padding:7px 15px;border-radius:999px}
 .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.s-later{color:#12307a;background:#dbe4f5}
+.card .chk{margin:-6px 0 0;font-size:16px;color:#475467}
 .s-open{color:var(--ok);background:var(--okbg)}.s-soon{color:var(--warn);background:var(--warnbg)}.s-closed,.s-na{color:var(--bad);background:var(--badbg)}
 .card h3{font-size:34px;line-height:1.1;font-weight:700;color:var(--ink);margin:0}
 .card .org{margin:-12px 0 0;display:flex;align-items:center;gap:8px;color:var(--body);font-size:19px;font-weight:500}

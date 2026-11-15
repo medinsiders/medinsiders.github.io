@@ -6,8 +6,8 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ic=(id,cls="")=>`<svg class="ico ${cls}"><use href="#${id}"/></svg>`;
 const fmt=d=>new Date(d+"T12:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
-const LABEL={open:"Open",soon:"Closing soon",closed:"Closed",na:"Date not stated"};
-const ORDER={open:0,soon:1,na:2,closed:3};
+const LABEL={open:"Open",soon:"Closing soon",later:"Opens soon",closed:"Closed",na:"Date not stated"};
+const ORDER={open:0,soon:1,later:2,na:3,closed:4};
 const NOUN=kind=="internships"?"internship":"conference";
 
 function status(o){
@@ -34,13 +34,14 @@ function card(o,s){
     </div>
     ${(o.perks||[]).length?`<div class="links">${o.perks.map(p=>`<span class="lk">${ic("check")}${esc(p)}</span>`).join("")}</div>`:""}
     <div class="links">${(o.links||[]).map(l=>`<a class="lk" href="${esc(l.u)}" target="_blank" rel="noopener">${ic(l.k,l.k)}${esc(l.t)}</a>`).join("")}</div>
+    ${o.checked?`<p class="chk">Checked on the official site, ${fmt(o.checked)}</p>`:""}
   </article>`;
 }
 
 let rows=[],filter="all",q="";
 const box=$("#list");
 const hit=o=>!q||[o.name,o.org,o.place,o.type,o.about,o.who,o.benefits,o.pay,o.dates].join(" ").toLowerCase().includes(q);
-const pick=k=>rows.filter(r=>hit(r.o)&&(k=="all"||(k=="open"?(r.s=="open"||r.s=="soon"):r.s=="closed")));
+const pick=k=>rows.filter(r=>hit(r.o)&&(k=="all"||(k=="open"?(r.s=="open"||r.s=="soon"):k=="later"?r.s=="later":r.s=="closed")));
 const count=k=>pick(k).length;
 function draw(){
   const show=pick(filter);
@@ -49,7 +50,7 @@ function draw(){
 const chips=$("#chips");
 function paint(){
   chips.textContent="";
-  [["all","All"],["open","Open"],["closed","Closed"]].forEach(([k,label])=>{
+  [["all","All"],["open","Open"],["later","Opens soon"],["closed","Closed"]].filter(([k])=>k!="later"||rows.some(r=>r.s=="later")).forEach(([k,label])=>{
     const b=document.createElement("button");b.className="chip";b.textContent=`${label} · ${count(k)}`;b.setAttribute("aria-pressed",k==filter);
     b.onclick=()=>{filter=k;paint()};
     chips.append(b);
