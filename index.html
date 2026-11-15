@@ -73,9 +73,15 @@ h2 .dim{color:var(--muted)}
 
 /* what we cover: tilt + spotlight */
 .cover{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;perspective:1000px}
-.cover div{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(0,0,0,.78)),var(--img) center/cover,var(--tile);border-radius:28px;padding:36px;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;transform-style:preserve-3d;transition:transform .25s ease-out}
-.cover div::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
-.cover div:hover::before{opacity:1}
+.cover .tile{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(0,0,0,.78)),var(--img) center/cover,var(--tile);border-radius:28px;padding:36px;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;transform-style:preserve-3d;transition:transform .25s ease-out}
+.cover .tile::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.cover .tile:hover::before{opacity:1}
+.cover .tile:hover{text-decoration:none}
+.cover .go{margin-top:14px;font-size:15px;font-weight:600;color:#fff}
+.cover .go::after{content:" \203A";display:inline-block;transition:transform .25s}
+.cover .tile:hover .go::after{transform:translateX(5px)}
+.fnote{margin:-12px 0 20px;color:var(--muted);font-size:19px;line-height:1.3;min-height:1.3em}
+.fnote a{margin-left:10px;font-size:17px}
 .cover h3{font-size:28px;line-height:1.14;font-weight:600;letter-spacing:.007em;margin:0 0 10px;text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .cover p{margin:0;color:rgba(255,255,255,.88);font-size:19px;line-height:1.3;text-shadow:0 1px 10px rgba(0,0,0,.35)}
 
@@ -122,6 +128,7 @@ h2 .dim{color:var(--muted)}
 .arrows button:hover{background:var(--btn);border-color:var(--btn);color:#fff}
 .reels{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}
 .reels::-webkit-scrollbar{display:none}
+#shorts-track iframe{height:auto;aspect-ratio:9/16}
 .reels iframe{flex:0 0 min(328px,80vw);height:600px;border:0;border-radius:28px;background:var(--tile);scroll-snap-align:start}
 
 /* founder */
@@ -157,7 +164,7 @@ footer a{color:var(--muted)}
   .nav ul{gap:14px}.nav .logo{width:96px}
   .hero{padding:48px 22px 56px}
   .cover,.connect{grid-template-columns:1fr}
-  .cover div{padding:28px 24px;min-height:260px}
+  .cover .tile{padding:28px 24px;min-height:260px}
   section{padding-top:56px}
   .path{padding:24px 12px 20px}.node text{font-size:13px}
   .founder{grid-template-columns:1fr;gap:32px;padding:32px 24px;text-align:center}
@@ -195,10 +202,10 @@ footer a{color:var(--muted)}
   <section id="cover" style="padding-top:0">
     <h2 class="rv">What we cover. <span class="dim">Everything between you and your next opportunity.</span></h2>
     <div class="cover">
-      <div class="rv" style="--img:url(img/opp.jpg)"><h3>Verified opportunities</h3><p>Internship, research and scholarship updates you can trust.</p></div>
-      <div class="rv" style="--d:80ms;--img:url(img/sop.jpg)"><h3>SOPs &amp; writing guidance</h3><p>Sample SOPs and step-by-step help with writing your own.</p></div>
-      <div class="rv" style="--img:url(img/web.jpg)"><h3>Webinars &amp; mentorship</h3><p>Sessions with scholars and interns who have done it before.</p></div>
-      <div class="rv" style="--d:80ms;--img:url(img/collab.jpg)"><h3>Collaborative learning</h3><p>A community of students learning from each other.</p></div>
+      <a class="tile rv" href="#videos" data-f="opp" style="--img:url(img/opp.jpg)"><h3>Verified opportunities</h3><p>MedEngage, MedSRT, IISc and more: internships, research and scholarships you can trust.</p><span class="go">Watch videos &amp; reels</span></a>
+      <a class="tile rv" href="#videos" data-f="sop" style="--d:80ms;--img:url(img/sop.jpg)"><h3>SOPs &amp; writing guidance</h3><p>Step-by-step videos on writing your SOP and CV, with real examples.</p><span class="go">Watch videos &amp; reels</span></a>
+      <a class="tile rv" href="#videos" data-f="web" style="--img:url(img/web.jpg)"><h3>Webinars &amp; mentorship</h3><p>Sessions with scholars and interns who have done it before.</p><span class="go">Watch sessions</span></a>
+      <a class="tile rv" href="#connect" style="--d:80ms;--img:url(img/collab.jpg)"><h3>Collaborative learning</h3><p>A community of students learning from each other.</p><span class="go">Join the community</span></a>
     </div>
   </section>
 
@@ -218,10 +225,17 @@ footer a{color:var(--muted)}
   </section>
 
   <section id="videos">
-    <h2 class="rv">Latest videos.</h2>
+    <h2 class="rv" id="vh">Latest videos.</h2>
+    <p class="fnote" id="fnote"></p>
     <div class="chips" id="chips" role="group" aria-label="Filter videos"></div>
     <div class="grid" id="grid"></div>
     <p class="allvid"><a class="more" href="https://www.youtube.com/channel/UCXM11s3ztDjbRJ1_pOSg_qQ/videos" target="_blank" rel="noopener" aria-label="See all videos on YouTube"><svg class="ico yt"><use href="#yt"/></svg>See all videos</a></p>
+  </section>
+
+  <section id="shorts">
+    <h2 class="rv">Shorts.</h2>
+    <div class="reelbar"><a class="more" href="https://www.youtube.com/channel/UCXM11s3ztDjbRJ1_pOSg_qQ/shorts" target="_blank" rel="noopener" aria-label="Watch all Shorts on YouTube"><svg class="ico yt"><use href="#yt"/></svg>Watch all Shorts</a><div class="arrows"><button id="sl" aria-label="Previous Shorts">&#8249;</button><button id="sr" aria-label="Next Shorts">&#8250;</button></div></div>
+    <div class="reels" id="shorts-track"></div>
   </section>
 
   <section id="reels">
@@ -271,7 +285,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 $$(".rv").forEach(el=>io.observe(el));
 
 // tilt + spotlight on cover tiles
-$$(".cover div").forEach(c=>{
+$$(".cover .tile").forEach(c=>{
   c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
     c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%");
     c.style.transform=`rotateX(${(.5-y)*6}deg) rotateY(${(x-.5)*8}deg)`});
@@ -286,24 +300,42 @@ nodes.forEach(n=>{
   n.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick()}});
 });
 
-// videos: [id, title, tags]. shortcut: hand-maintained list (tags are guessed from titles); add a line at the top for each new video
-const V=[
-["iguTtv4-fxc","MBBS to IIM Ahmedabad to Bain: Is an MBA Worth It for Doctors?","career"],
-["FfjBtuhkMA0","Everyone Says “Write a Good SOP” but Nobody Shows You How: MedSRT SOP and CV, Step by Step","sop research"],
+// Tags: opp = verified opportunities (MedEngage, MedSRT, IISc), sop = SOP/CV writing, web = webinars & mentorship.
+// shortcut: hand-maintained lists with tags guessed from titles and captions; add a line at the top for each new video, Short or reel
+const V=[ // [YouTube id, title, tags]
+["iguTtv4-fxc","MBBS to IIM Ahmedabad to Bain: Is an MBA Worth It for Doctors?","web"],
+["FfjBtuhkMA0","Everyone Says “Write a Good SOP” but Nobody Shows You How: MedSRT SOP and CV, Step by Step","sop opp"],
 ["_cXrIE4NuPw","Underselling vs Overselling : Getting the balance right in your SOP","sop"],
-["Oat_hfZjSiY","The Good OL' DAYS : The MedSRT experience","research"],
-["tYf1YkkxCvE","Is MedSRT Just for Your CV? The Big Picture from a MedSRT Scholar","research"],
+["Oat_hfZjSiY","The Good OL' DAYS : The MedSRT experience","opp"],
+["tYf1YkkxCvE","Is MedSRT Just for Your CV? The Big Picture from a MedSRT Scholar","opp"],
 ["RfWnzNxs0CE","Mirch Masala : Building the Perfect Appplication","sop"],
-["zbIxmXxqhow","Don’t Apply to MedSRT-6 Before Watching This (Deadline 26 Oct)","research"],
-["rmHBwLoY-po","Decoding MBBS / MPH IISc INTERSHIP 2026","research"],
-["Bwi1MsX2wLY","Decoding MedEngage Scholarship 2025","scholar"],
-["6MeForWec0w","SOP Writing Part 3 | Trushdeep Agrawal – Scholar & Founder, Association of Physicians & Engineers","sop"],
-["KBzmWtcjZcg","SOP Writing Part 2 | Swastik Pandita – IISc Intern & MedEngage Scholar","sop"],
-["jny_66ORkHY","SOP Writing Part 1 | Dr Surya Shanbhog – Khorana, ICMR-STS & Research Scholar","sop scholar"],
-["4Sn6tr0BH-4","Decode the Felix | Journey of Dr Vinay Suresh – Felix Scholar, IISER Pune Intern & Rhodes Finalist","scholar"],
-["QQ7dBUl3DEw","Decode the Rhodes Scholarship | Journey of Dr Varad Puntambekar – Rhodes, Khorana & ICMR-STS Scholar","scholar"]
+["zbIxmXxqhow","Don’t Apply to MedSRT-6 Before Watching This (Deadline 26 Oct)","opp"],
+["rmHBwLoY-po","Decoding MBBS / MPH IISc INTERSHIP 2026","opp"],
+["Bwi1MsX2wLY","Decoding MedEngage Scholarship 2025","opp"],
+["6MeForWec0w","SOP Writing Part 3 | Trushdeep Agrawal – Scholar & Founder, Association of Physicians & Engineers","sop web"],
+["KBzmWtcjZcg","SOP Writing Part 2 | Swastik Pandita – IISc Intern & MedEngage Scholar","sop web"],
+["jny_66ORkHY","SOP Writing Part 1 | Dr Surya Shanbhog – Khorana, ICMR-STS & Research Scholar","sop web"],
+["4Sn6tr0BH-4","Decode the Felix | Journey of Dr Vinay Suresh – Felix Scholar, IISER Pune Intern & Rhodes Finalist","web"],
+["QQ7dBUl3DEw","Decode the Rhodes Scholarship | Journey of Dr Varad Puntambekar – Rhodes, Khorana & ICMR-STS Scholar","web"]
 ];
-const F=[["all","All"],["sop","SOP & writing"],["research","Research & internships"],["scholar","Scholarships"],["career","Career"]];
+const S=[ // YouTube Shorts: [id, tags]
+["Gbpf2gtUzus","opp"],      // CCMB MedSRT-6 internship
+["EsD3_DshBS8","opp"],      // train in a CSIR lab for 2 weeks
+["QajNfIBDnIs","opp"],      // MedSRT with zero publications
+["WXqb10lkVB4","sop opp"],  // MedSRT answers
+["k_xge0YR4kg","sop opp"],  // rejected ICMR-STS proposal in your SOP
+["jwwn7jBA_3o","opp"],      // first real chromosome (tag guessed)
+["cvR13iC6LK4",""],         // Decoding after NEET
+["HexB79E_tXA","web"],      // IIM A/B/C vs FMS vs ISB
+["Dv_coW2Ydcg","web"],      // MBBS wasted if you do an MBA?
+["4DmuFP8Z0X8","web"],      // MBA salary vs doctor salary
+["YXeR2SIOiK8","web"],      // top consulting firms
+["iLTVMtdPdZ8","web"],      // real working hours in consulting
+["_--azyzNeYM","web"],      // could AI replace consultants
+["78JuE1GoQlI","web"]       // don't do an MBA to escape medicine
+];
+const F=[["all","All"],["opp","Verified opportunities"],["sop","SOP & writing"],["web","Webinars & mentorship"]];
+const NOTE={opp:"MedEngage scholarship, MedSRT and the IISc internship.",sop:"How to write your SOP and CV, with real examples.",web:"Sessions with scholars and mentors who have done it before."};
 const g=$("#grid");
 V.forEach(([id,t,tags])=>{
   const a=document.createElement("a");a.className="vid";a.target="_blank";a.rel="noopener";a.dataset.tags=tags;
@@ -313,19 +345,45 @@ V.forEach(([id,t,tags])=>{
   a.querySelector(".t").textContent=t;
   g.append(a);
 });
-// Instagram reels: official embeds, lazy-loaded. shortcut: hand-maintained list, add the new reel's code at the top
-const R=["DfR3f1SAXbM","De_9JAcgqO6","De9pXQWgWQl","De6xwedg34Y","Dey3ucKgglx","DewVjSuks31","DewA62NA1MQ","Det23xwEpjQ","DeqNGprko9j","DejI6WegA4e"];
-const rt=$("#reels-track");
-R.forEach(c=>{const f=document.createElement("iframe");f.loading="lazy";f.title="Medinsider Instagram reel";f.allowFullscreen=true;f.src="https://www.instagram.com/reel/"+c+"/embed";rt.append(f)});
-$("#rl").onclick=()=>rt.scrollBy({left:-340,behavior:"smooth"});
-$("#rr").onclick=()=>rt.scrollBy({left:340,behavior:"smooth"});
+// Instagram reels, tags read from each reel's caption: [code, tags]
+const R=[
+["DfR3f1SAXbM","opp"],    // MedEngage Rs 30,000 scholarship
+["De_9JAcgqO6","web"],    // Dr Dhairya: MBBS to IIM A to Bain
+["De9pXQWgWQl","opp"],    // Rs 1.5 lakh research poster prize
+["De6xwedg34Y","sop"],    // CV advice
+["Dey3ucKgglx","sop opp"],// 5 real MedSRT SOPs
+["DewVjSuks31","sop"],    // SOP opening line
+["DewA62NA1MQ","sop"],    // ICMR-STS rejection in your SOP
+["Det23xwEpjQ","sop opp"],// MedSRT answers
+["DeqNGprko9j","opp"],    // MedSRT with zero publications
+["DejI6WegA4e","opp"]     // internship, CCMB
+];
+// swipeable embed rows (official YouTube and Instagram players, lazy-loaded)
+function row(track,items,title,src){
+  const el=$(track);
+  items.forEach(([id,tags])=>{const f=document.createElement("iframe");f.loading="lazy";f.title=title;f.allowFullscreen=true;f.allow="encrypted-media; picture-in-picture";f.dataset.tags=tags;f.src=src(id);el.append(f)});
+  return el;
+}
+const st=row("#shorts-track",S,"Medinsider YouTube Short",id=>"https://www.youtube-nocookie.com/embed/"+id+"?rel=0&playsinline=1");
+const rt=row("#reels-track",R,"Medinsider Instagram reel",id=>"https://www.instagram.com/reel/"+id+"/embed");
+[["#sl","#sr",st],["#rl","#rr",rt]].forEach(([l,r,t])=>{$(l).onclick=()=>t.scrollBy({left:-340,behavior:"smooth"});$(r).onclick=()=>t.scrollBy({left:340,behavior:"smooth"})});
 
-F.forEach(([k,label],i)=>{
-  const b=document.createElement("button");b.className="chip";b.textContent=label;b.setAttribute("aria-pressed",i==0);
-  b.onclick=()=>{$$(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b));
-    $$(".vid").forEach(v=>{const show=k=="all"||v.dataset.tags.split(" ").includes(k);v.hidden=!show;if(show){v.style.animation="none";v.offsetWidth;v.style.animation=""}})};
-  $("#chips").append(b);
+// one filter drives the chips, the video grid, the Shorts row and the reels row
+function setFilter(k){
+  const hit=el=>k=="all"||el.dataset.tags.split(" ").includes(k);
+  $$(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.k==k));
+  $$(".vid").forEach(v=>{const show=hit(v);v.hidden=!show;if(show){v.style.animation="none";v.offsetWidth;v.style.animation=""}});
+  [st,rt].forEach(t=>{[...t.children].forEach(f=>f.hidden=!hit(f));t.scrollTo({left:0})});
+  $("#vh").textContent=k=="all"?"Latest videos.":F.find(x=>x[0]==k)[1]+".";
+  const n=$("#fnote");n.textContent=k=="all"?"":NOTE[k]+" Matching Shorts and reels are just below.";
+  if(k!="all"){const a=document.createElement("a");a.href="#";a.textContent="Show all";a.onclick=e=>{e.preventDefault();setFilter("all")};n.append(a)}
+}
+F.forEach(([k,label])=>{
+  const b=document.createElement("button");b.className="chip";b.textContent=label;b.dataset.k=k;b.setAttribute("aria-pressed",k=="all");
+  b.onclick=()=>setFilter(k);$("#chips").append(b);
 });
+// the cover tiles with data-f jump to the matching videos, Shorts and reels
+$$(".cover .tile[data-f]").forEach(t=>t.addEventListener("click",e=>{e.preventDefault();setFilter(t.dataset.f);$("#videos").scrollIntoView({behavior:"smooth"})}));
 </script>
 </body>
 </html>
