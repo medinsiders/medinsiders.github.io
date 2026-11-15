@@ -12,7 +12,7 @@ const reveal=new IntersectionObserver(es=>es.forEach(e=>{
   setTimeout(()=>e.target.classList.remove("rv","in"),900);
 }),{rootMargin:"0px 0px -6% 0px"});
 function arm(el,i){el.style.setProperty("--d",Math.min(i,4)*70+"ms");el.classList.add("rv");reveal.observe(el)}
-$$("section>h2,.tcard,.topic,.founder,.cta-card,.shortswrap,.reels").forEach((el,i)=>arm(el,[...el.parentNode.children].indexOf(el)));
+$$("section>h2,.node,.total,.ecard,.tcard,.topic,.founder,.cta-card,.shortswrap,.reels").forEach((el,i)=>arm(el,[...el.parentNode.children].indexOf(el)));
 
 // Tracker cards appear one after another the first time only, so typing in the search box stays calm.
 const list=document.querySelector("#list");

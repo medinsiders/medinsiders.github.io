@@ -109,11 +109,16 @@ footer a{color:#fff;text-decoration:underline}
 footer .fi a{text-decoration:none}
 
 @media (max-width:760px){
-  .nav{padding:0 10px}.nav .in{padding:0 16px;gap:10px}
-  .nav ul{gap:14px}.nav ul a{font-size:15px}.nav .logo{width:92px}.nav li.opt,.nav .btn{display:none}
+  .nav{padding:0 10px}.nav .in{padding:0 14px;gap:8px}
+  .nav ul{gap:10px}.nav ul a{font-size:15px}.nav .logo{width:80px}.nav li.opt,.nav .btn{display:none}
   section{padding-top:60px}
   .facts{grid-template-columns:1fr}
   .thead{padding:24px;min-height:220px;gap:14px}.thead .big{width:56px;height:56px}
+}
+/* very narrow phones: the pill nav takes two rows so all three links stay visible */
+@media (max-width:380px){
+  .nav .in{height:auto;flex-wrap:wrap;justify-content:center;padding:10px 14px;border-radius:28px;row-gap:2px}
+  .nav ul{width:100%;justify-content:space-around}
 }
 /* calm interactions (fx.js adds .fx to <html> only when motion is welcome) */
 .fx .rv{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .55s cubic-bezier(.2,.7,.2,1) var(--d,0s)}

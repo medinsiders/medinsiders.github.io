@@ -14,5 +14,13 @@ document.body.insertAdjacentHTML("afterbegin",`<svg width="0" height="0" style="
 <symbol id="web" viewBox="0 0 24 24"><circle class="line" cx="12" cy="12" r="9"/><path class="line" d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
 <symbol id="check" viewBox="0 0 24 24"><path class="line" d="M5 12.500l4.500 4.500L19 7.500"/></symbol>
 <symbol id="lab" viewBox="0 0 24 24"><path class="line" d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.800 3h10.400a2 2 0 0 0 1.800-3l-5-9V3M7.500 15h9"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle class="line" cx="12" cy="8" r="4"/><path class="line" d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="doc" viewBox="0 0 24 24"><path class="line" d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></symbol>
+<symbol id="book" viewBox="0 0 24 24"><path class="line" d="M5 4h13v16H7a2 2 0 0 1-2-2zM5 18a2 2 0 0 1 2-2h11"/></symbol>
+<symbol id="chart" viewBox="0 0 24 24"><path class="line" d="M4 4v16h16M8 16v-4M12 16V8M16 16v-6"/></symbol>
+<symbol id="building" viewBox="0 0 24 24"><path class="line" d="M4 21V8l8-5 8 5v13M9 21v-6h6v6M3 21h18"/></symbol>
+<symbol id="flag" viewBox="0 0 24 24"><path class="line" d="M6 21V4M6 4h12l-2.500 4 2.500 4H6"/></symbol>
+<symbol id="steth" viewBox="0 0 24 24"><path class="line" d="M6 3v6a4 4 0 0 0 8 0V3M10 13v3a4.500 4.500 0 0 0 9 0v-2"/><circle class="line" cx="19" cy="12" r="2"/></symbol>
+<symbol id="plane" viewBox="0 0 24 24"><path class="line" d="M3 11l18-8-8 18-2.500-7.500z"/></symbol>
 <symbol id="mic" viewBox="0 0 24 24"><rect class="line" x="9" y="3" width="6" height="11" rx="3"/><path class="line" d="M5 11a7 7 0 0 0 14 0M12 18v3M8.500 21h7"/></symbol>
 </svg>`);
