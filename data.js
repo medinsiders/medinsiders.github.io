@@ -11,10 +11,10 @@ internships:[
  who:"MBBS Phase II and Phase III Part 1",pay:"Free to attend · stipend not stated",dates:"7–19 Dec 2026",deadline:"2026-10-26",
  links:[{k:"yt",t:"Watch before applying",u:"https://www.youtube.com/watch?v=zbIxmXxqhow"},{k:"yt",t:"Short",u:"https://www.youtube.com/shorts/Gbpf2gtUzus"},{k:"ig",t:"Reel",u:"https://www.instagram.com/reel/DeqNGprko9j/"}]},
 {name:"MedEngage Scholarship",org:"MedEngage",place:null,type:"Scholarship / research grant",
- who:"MBBS and PG (MD / MS / DNB)",pay:"₹30,000",dates:null,deadline:null,
+ who:"MBBS and PG (MD / MS / DNB)",pay:"₹30,000",dates:null,deadline:"2026-12-31",
  links:[{k:"ig",t:"Reel",u:"https://www.instagram.com/reel/DfR3f1SAXbM/"},{k:"yt",t:"Decoding MedEngage",u:"https://www.youtube.com/watch?v=Bwi1MsX2wLY"}]},
 {name:"IISc MBBS / MPH Internship 2026",org:"Indian Institute of Science",place:"Bengaluru",type:"Internship",
- who:null,pay:null,dates:null,deadline:null,
+ who:null,pay:"₹35,000",dates:null,deadline:null,
  links:[{k:"yt",t:"SOPs and Q&A",u:"https://www.youtube.com/watch?v=rmHBwLoY-po"}]}
 ],
 conferences:[

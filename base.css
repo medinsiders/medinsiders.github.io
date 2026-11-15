@@ -19,6 +19,7 @@ section{padding-top:84px}
 /* icons */
 .ico{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;flex:none}
 .line{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ml{color:var(--navy)}footer .ml{color:#fff}
 .yt{color:#ff0033}.ig{color:#e1306c}.li{color:#0a66c2}.wa{color:#25d366}
 .soc{width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:var(--sh);display:grid;place-items:center;transition:transform .2s}
 .soc:hover{transform:translateY(-3px);text-decoration:none}
