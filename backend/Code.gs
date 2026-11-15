@@ -41,8 +41,9 @@ const clean_ = v => String(v == null ? "" : v).replace(/[\u0000-\u001f]/g, " ").
 
 function flags_(d) {
   const f = [];
-  let host = "";
-  try { host = new URL(d.url).hostname.replace(/^www\./, "").toLowerCase(); } catch (e) { f.push("Website is not a valid link"); }
+  const m = String(d.url).match(/^https?:\/\/([^\/?#:]+)/i);       // Apps Script has no URL class
+  const host = m ? m[1].replace(/^www\./i, "").toLowerCase() : "";
+  if (!m) f.push("Website is not a valid link");
   if (!/^https:\/\//i.test(d.url)) f.push("Website is not https");
   if (/^(bit\.ly|tinyurl\.com|t\.co|goo\.gl|cutt\.ly|rb\.gy|wa\.me|chat\.whatsapp\.com|t\.me|instagram\.com|facebook\.com|linktr\.ee|forms\.gle|docs\.google\.com)$/.test(host))
     f.push("Link is a social, chat, shortener or form page, not an official website (" + host + ")");
@@ -70,7 +71,10 @@ function doPost(e) {
     if (n >= 40) { lock.releaseLock(); return json_({ ok: false, error: "busy" }); }
     c.put("n", String(n + 1), 3600);
     const flags = flags_(r);
-    sheet_().appendRow([new Date(), "Pending", kind, r.name, r.org, r.what, r.deadline, r.who, r.dates, r.benefits, r.fee, r.url, r.contact, flags, ""]);
+    const sh = sheet_(), row = sh.getLastRow() + 1, tz = Session.getScriptTimeZone();
+    const cells = sh.getRange(row, 1, 1, HEAD.length);
+    cells.setNumberFormat("@");                                       // plain text first, or Sheets turns "Jan 2027" into a date
+    cells.setValues([[Utilities.formatDate(new Date(), tz, "yyyy-MM-dd HH:mm"), "Pending", kind, r.name, r.org, r.what, r.deadline, r.who, r.dates, r.benefits, r.fee, r.url, r.contact, flags, ""]]);
     lock.releaseLock();
 
     MailApp.sendEmail(Session.getEffectiveUser().getEmail(), "New Medinsider submission: " + r.name,
