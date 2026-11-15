@@ -124,3 +124,21 @@ footer .fi a{text-decoration:none}
 .hv .float{translate:calc(var(--px,0)*-16px) calc(var(--py,0)*-12px)}
 .btn:active,.chip:active{transform:scale(.97)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Deadline gauge (Anatomy kit card, restyled to the site: white card, 16px+ text) */
+#gauge-fig.iso{--anatomy-card:#fff;--anatomy-paper:#fff;--anatomy-lit:#173b8f;--anatomy-text:#344054;--anatomy-muted:#475467}
+#gauge-fig .iso-figure{margin:0}
+#gauge-fig .iso-plate{border-radius:28px;border:1px solid var(--line);box-shadow:var(--sh);padding:64px 24px 72px}
+#gauge-fig .iso-plate-corners{inset:22px 28px}
+#gauge-fig .iso-plate-corner{font-family:Inter,-apple-system,sans-serif;font-size:16px;letter-spacing:.02em}
+#gauge-fig .iso-plate-corner[data-corner="readout"]{color:var(--ink);font-weight:700;font-size:17px}
+#gauge-fig .iso-legend{font-size:17px;line-height:1.55;color:var(--body);margin-top:18px}
+#gauge-fig .iso-swatch{width:20px;height:12px}
+#gauge-fig .iso-stage{cursor:ew-resize;touch-action:pan-y;border-radius:16px}
+#gauge-fig .iso-stage:focus-visible{outline:3px solid #b9c8f2;outline-offset:4px}
+#gauge .gauge-links{margin:20px 0 0}
+@media (max-width:560px){
+  #gauge-fig .iso-plate{padding:56px 6px 100px}
+  #gauge-fig .iso-plate-corners{inset:18px 16px}
+  #gauge-fig .iso-plate-corner[data-corner="hint"]{bottom:34px}
+}
