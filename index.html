@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap">
-<link rel="stylesheet" href="base.css?v=4">
+<link rel="stylesheet" href="base.css?v=5">
 <style>
 /* hero */
 .herobg{margin-top:-78px;padding-top:78px;background:radial-gradient(55% 75% at 88% 45%,#dbe8ff 0%,rgba(219,232,255,0) 70%),radial-gradient(40% 50% at 0% 0%,#eef2ff 0%,rgba(238,242,255,0) 70%),#fff;overflow:hidden}
@@ -39,14 +39,14 @@
 
 /* trackers */
 .tcards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.tcard{background:#fff;border:1px solid var(--line);box-shadow:var(--sh);border-radius:28px;padding:28px 32px 32px;color:var(--ink);display:flex;flex-direction:column;gap:44px;transition:transform .25s,box-shadow .25s}
+.tcard{min-height:340px;background:linear-gradient(180deg,rgba(11,31,77,.15) 0%,rgba(11,31,77,.9) 100%),var(--img) center/cover,#0b1f4d;box-shadow:var(--sh);border-radius:28px;padding:28px 32px 32px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:44px;transition:transform .25s,box-shadow .25s}
 .tcard:hover{transform:translateY(-4px);box-shadow:var(--sh2);text-decoration:none}
 .tcard .row{display:flex;justify-content:space-between;align-items:center}
-.tcard .ib{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,#173b8f,#2563eb);display:grid;place-items:center;color:#fff;box-shadow:0 10px 24px rgba(37,99,235,.3)}
+.tcard .ib{width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.95);display:grid;place-items:center;color:var(--navy)}
 .tcard .ib .ico{width:30px;height:30px}
-.tcard .arr{width:46px;height:46px;border-radius:50%;border:1.5px solid #cfd8ee;display:grid;place-items:center;color:var(--navy)}
+.tcard .arr{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.8);display:grid;place-items:center;color:#fff}
 .tcard .arr .ico{width:22px;height:22px}
-.tcard .n{font-size:76px;font-weight:800;line-height:1;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content}
+.tcard .n{font-size:76px;font-weight:800;line-height:1;letter-spacing:-.03em;color:#fff;width:max-content;text-shadow:0 2px 14px rgba(0,0,0,.4)}
 .tcard .l{font-family:Outfit,sans-serif;font-size:30px;font-weight:700;margin-top:6px}
 
 /* topic tiles */
@@ -80,7 +80,9 @@
 .reels{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;scrollbar-width:none}
 .reels::-webkit-scrollbar{display:none}
 .reels iframe{flex:0 0 min(328px,80vw);height:600px;border:0;border-radius:24px;background:var(--tile);box-shadow:var(--sh);scroll-snap-align:start}
-#shorts-track iframe{height:auto;aspect-ratio:9/16}
+.shortswrap{max-width:818px;margin:0 auto}
+#shorts-track{--sw:min(260px,64vw);align-items:flex-start}
+#shorts-track iframe{flex:0 0 var(--sw);width:var(--sw);height:calc(var(--sw)*1.7778)}
 .reels iframe[hidden]{display:none}
 
 /* founder */
@@ -145,8 +147,8 @@ footer .fi a:hover{opacity:.8}
   <section style="padding-top:64px" id="trackers">
     <span class="eyebrow">Trackers</span>
     <div class="tcards">
-      <a class="tcard" href="internships.html"><div class="row"><span class="ib"><svg class="ico"><use href="#lab"/></svg></span><span class="arr"><svg class="ico"><use href="#arrow"/></svg></span></div><div><div class="n" id="n-int">·</div><div class="l">Internship tracker</div></div></a>
-      <a class="tcard" href="conferences.html"><div class="row"><span class="ib"><svg class="ico"><use href="#mic"/></svg></span><span class="arr"><svg class="ico"><use href="#arrow"/></svg></span></div><div><div class="n" id="n-conf">·</div><div class="l">Conference tracker</div></div></a>
+      <a class="tcard" href="internships.html" style="--img:url(img/intern.jpg)"><div class="row"><span class="ib"><svg class="ico"><use href="#lab"/></svg></span><span class="arr"><svg class="ico"><use href="#arrow"/></svg></span></div><div><div class="n" id="n-int">·</div><div class="l">Internship tracker</div></div></a>
+      <a class="tcard" href="conferences.html" style="--img:url(img/conf.jpg)"><div class="row"><span class="ib"><svg class="ico"><use href="#mic"/></svg></span><span class="arr"><svg class="ico"><use href="#arrow"/></svg></span></div><div><div class="n" id="n-conf">·</div><div class="l">Conference tracker</div></div></a>
     </div>
     <div class="topics">
       <a class="topic" href="#watch" data-f="opp" style="--img:url(img/opp.jpg)"><h3>Verified opportunities</h3></a>
@@ -164,8 +166,10 @@ footer .fi a:hover{opacity:.8}
     <div class="grid cap" id="grid"></div>
     <button class="allbtn" id="more">Show all</button>
 
-    <div class="sub2"><b><svg class="ico yt"><use href="#yt"/></svg>Shorts</b><div class="arrows"><button id="sl" aria-label="Previous Shorts">&#8249;</button><button id="sr" aria-label="Next Shorts">&#8250;</button></div></div>
-    <div class="reels" id="shorts-track"></div>
+    <div class="shortswrap">
+      <div class="sub2"><b><svg class="ico yt"><use href="#yt"/></svg>Shorts</b><div class="arrows"><button id="sl" aria-label="Previous Shorts">&#8249;</button><button id="sr" aria-label="Next Shorts">&#8250;</button></div></div>
+      <div class="reels" id="shorts-track"></div>
+    </div>
 
     <div class="sub2"><b><svg class="ico ig"><use href="#ig"/></svg>Reels</b><div class="arrows"><button id="rl" aria-label="Previous reels">&#8249;</button><button id="rr" aria-label="Next reels">&#8250;</button></div></div>
     <div class="reels" id="reels-track"></div>
@@ -193,8 +197,8 @@ footer .fi a:hover{opacity:.8}
 
 <footer><div class="in"><span>© Medinsider · Photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico wa"><use href="#wa"/></svg></a></span></div></footer>
 
-<script src="sprite.js?v=4"></script>
-<script src="data.js?v=4"></script>
+<script src="sprite.js?v=5"></script>
+<script src="data.js?v=5"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 
@@ -248,7 +252,7 @@ function row(track,items,title,src){
 }
 const st=row("#shorts-track",S,"Medinsider YouTube Short",id=>"https://www.youtube-nocookie.com/embed/"+id+"?rel=0&playsinline=1");
 const rt=row("#reels-track",R,"Medinsider Instagram reel",id=>"https://www.instagram.com/reel/"+id+"/embed");
-[["#sl","#sr",st],["#rl","#rr",rt]].forEach(([l,r,t])=>{$(l).onclick=()=>t.scrollBy({left:-340,behavior:"smooth"});$(r).onclick=()=>t.scrollBy({left:340,behavior:"smooth"})});
+[["#sl","#sr",st],["#rl","#rr",rt]].forEach(([l,r,t])=>{const step=()=>((t.querySelector("iframe:not([hidden])")||{}).offsetWidth||326)+14;$(l).onclick=()=>t.scrollBy({left:-step(),behavior:"smooth"});$(r).onclick=()=>t.scrollBy({left:step(),behavior:"smooth"})});
 
 // show 6 videos first; a filter or "Show all" reveals the rest
 const more=$("#more");
