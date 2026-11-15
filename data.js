@@ -1,6 +1,6 @@
 // Tracker entries, checked 15 Nov 2026. Sources: Pavan's own videos, Shorts and reels, plus the official ghc.gaims.org site for GHC 2026.
 // A field set to null shows as "Not stated": never guess eligibility, pay or dates, add them only when an official source says so.
-// short = a 2–3 word name for compact places. logo = file in img/org/ (from the organiser's own site); mono = letters shown when there is no logo; fee = shown instead of pay (null hides it).
+// short = a 2–3 word name for compact places. logo = file in img/org/ (from the organiser's own site); mono = letters shown when there is no logo; dark = logo is white, so it sits on a navy tile; fee = shown instead of pay (null hides it).
 // To add an entry: copy one object, fill what is known, keep the rest null.
 // deadline (YYYY-MM-DD) makes Open / Closing soon / Closed automatic. Optional: status ("open"|"closed") to set it by hand,
 // applyText to override the "Apply by" line, perks (short chips) for extras like free workshops.
@@ -11,7 +11,7 @@ internships:[
 {name:"MedSRT-6",short:"MedSRT-6",logo:"img/org/ccmb.png",org:"CSIR-CCMB",place:"Hyderabad",type:"Research internship",
  who:"MBBS Phase II and Phase III Part 1",pay:"Free to attend · stipend not stated",dates:"7–19 Dec 2026",deadline:"2026-10-26",
  links:[{k:"yt",t:"Watch before applying",u:"https://www.youtube.com/watch?v=zbIxmXxqhow"},{k:"yt",t:"Short",u:"https://www.youtube.com/shorts/Gbpf2gtUzus"},{k:"ig",t:"Reel",u:"https://www.instagram.com/reel/DeqNGprko9j/"}]},
-{name:"MedEngage Scholarship",short:"MedEngage",mono:"ME",org:"MedEngage",place:null,type:"Scholarship / research grant",
+{name:"MedEngage Scholarship",short:"MedEngage",logo:"img/org/medengage.png",dark:true,org:"MedEngage",place:null,type:"Scholarship / research grant",
  who:"MBBS and PG (MD / MS / DNB)",pay:"₹30,000",dates:null,deadline:"2026-12-31",
  links:[{k:"ig",t:"Reel",u:"https://www.instagram.com/reel/DfR3f1SAXbM/"},{k:"yt",t:"Decoding MedEngage",u:"https://www.youtube.com/watch?v=Bwi1MsX2wLY"}]},
 {name:"IISc MBBS / MPH Internship 2026",short:"IISc internship",logo:"img/org/iisc.jpg",org:"Indian Institute of Science",place:"Bengaluru",type:"Internship",
@@ -19,7 +19,7 @@ internships:[
  links:[{k:"yt",t:"SOPs and Q&A",u:"https://www.youtube.com/watch?v=rmHBwLoY-po"}]},
 
 // Added 15 Nov 2026 after reading the organisers' own pages (shared first via the @medicaldora Instagram posts).
-{name:"Summer Research Fellowship 2027",short:"Science Academies SRFP",mono:"IAS",org:"Indian Academy of Sciences · INSA · NASI",place:"Research institutions across India",type:"Research fellowship",
+{name:"Summer Research Fellowship 2027",short:"Science Academies SRFP",logo:"img/org/ias.png",dark:true,org:"Indian Academy of Sciences · INSA · NASI",place:"Research institutions across India",type:"Research fellowship",
  about:"Hands-on research project under a scientist at a reputed institution, run jointly by the three science academies.",
  who:"MBBS 2nd, 3rd and 4th year (other UG years also listed) · 65% or more average in core subjects from Class X",
  pay:"Monthly fellowship plus train fare (amount not stated)",dates:"Two months in 2027",deadline:"2026-11-30",
@@ -49,7 +49,7 @@ conferences:[
  who:"Any oncology abstract with primary data or clinical observations · student rules not stated",pay:null,dates:"4–8 Jun 2027",deadline:"2027-01-26",
  applyText:"26 Jan 2027, 11:59 pm ET · results late March",checked:"2026-11-15",
  links:[{k:"web",t:"Official abstract page",u:"https://www.asco.org/annual-meeting"}]},
-{name:"Digestive Disease Week (DDW) 2027",short:"DDW 2027",mono:"DDW",org:"AASLD · AGA · ASGE · SSAT",place:"Washington, D.C. and online",type:"US conference · abstracts",
+{name:"Digestive Disease Week (DDW) 2027",short:"DDW 2027",logo:"img/org/ddw.png",org:"AASLD · AGA · ASGE · SSAT",place:"Washington, D.C. and online",type:"US conference · abstracts",
  about:"Large gastroenterology, hepatology, endoscopy and GI-surgery meeting run by four societies.",
  who:"Not stated on the abstract page · a free DDW account is needed",pay:null,dates:"15–18 May 2027",deadline:"2026-12-02",
  applyText:"2 Dec 2026, 9 pm ET (the page also mentions 4 Dec for notices: check)",
@@ -74,14 +74,14 @@ conferences:[
  applyText:"Opens 2 Dec 2026 · due 6 Jan 2027, 11:59 pm ET",
  benefits:"Scholar-in-Training travel award applications close 18 Nov (see AACR for who qualifies).",checked:"2026-11-15",
  links:[{k:"web",t:"Official key dates",u:"https://www.aacr.org/meeting/aacr-annual-meeting-2027/key-dates/"}]},
-{name:"AAN Annual Meeting 2027 · late-breaking",short:"AAN 2027",mono:"AAN",org:"American Academy of Neurology",place:"Washington, DC and online",type:"US conference · abstracts",
+{name:"AAN Annual Meeting 2027 · late-breaking",short:"AAN 2027",logo:"img/org/aan.svg",org:"American Academy of Neurology",place:"Washington, DC and online",type:"US conference · abstracts",
  about:"Neurology meeting. Regular abstracts closed on 13 Oct; a late-breaking window follows.",
  who:"Work done after the October deadline · case reports are not accepted",
  pay:"Late-breaking fee: $175 members · $275 non-members · $25 students and trainees",dates:"1–5 May 2027",status:"later",
  applyText:"Opens 1 Dec 2026 · due 10 Feb 2027, 11:59 pm CT",
  benefits:"First authors of accepted abstracts get an early-registration extension code.",checked:"2026-11-15",
  links:[{k:"web",t:"Official abstract page",u:"https://www.aan.com/events/annual-meeting-abstracts-awards/"}]},
-{name:"ATS 2027 International Conference · late-breaking",short:"ATS 2027",mono:"ATS",org:"American Thoracic Society",place:"New Orleans",type:"US conference · abstracts",
+{name:"ATS 2027 International Conference · late-breaking",short:"ATS 2027",logo:"img/org/ats.png",org:"American Thoracic Society",place:"New Orleans",type:"US conference · abstracts",
  about:"Pulmonary, critical-care and sleep meeting. Regular abstracts are closed; late-breaking abstracts are next.",
  who:"The first author submits · no limit on abstracts per person",pay:null,dates:"May 2027",status:"later",
  applyText:"Late-breaking due 27 Jan 2027 · details posted in December",
@@ -98,7 +98,7 @@ conferences:[
  who:"Not announced · in 2026 ASN membership was not needed, only a free ASN login",pay:"2026: $80 per abstract (2027 not announced)",dates:"27–31 Oct 2027",status:"later",
  applyText:"Not announced · the 2026 call ran 1 Apr to 13 May",checked:"2026-11-15",
  links:[{k:"web",t:"ASN abstract rules (2026 page)",u:"https://www.asn-online.org/education/kidneyweek/2026/cfa.aspx"}]},
-{name:"AHA Scientific Sessions 2027",short:"AHA 2027",mono:"AHA",org:"American Heart Association",place:null,type:"US conference · abstracts",
+{name:"AHA Scientific Sessions 2027",short:"AHA 2027",logo:"img/org/aha.png",org:"American Heart Association",place:null,type:"US conference · abstracts",
  about:"The AHA's main yearly meeting. Scientific Sessions 2026 ran 6–9 Nov in Chicago; 2027 abstract dates are not posted.",
  who:null,pay:null,dates:null,status:"later",
  applyText:"Not announced · the 2026 general deadline was 8 Jun",checked:"2026-11-15",

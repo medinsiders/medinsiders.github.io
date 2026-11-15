@@ -64,6 +64,7 @@ section{padding-top:84px}
 .card{background:#fff;border:1px solid var(--line);box-shadow:var(--sh);border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:18px}
 .lg{display:grid;place-items:center;height:72px;min-width:72px;max-width:min(220px,62%);padding:8px 12px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden}
 .lg img{display:block;height:56px;width:auto;max-width:100%;object-fit:contain}
+.lg.dark{background:var(--navy);border-color:var(--navy)}
 .lg.mono{background:var(--tile);border-color:#dbe4f5;box-shadow:none;font-family:Outfit,sans-serif;font-size:26px;font-weight:800;letter-spacing:.02em;color:var(--navy)}
 .card .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .type{font-size:16px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em}

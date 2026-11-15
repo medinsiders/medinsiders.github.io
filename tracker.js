@@ -21,7 +21,7 @@ const fact=(icon,label,val,cls="")=>`<div class="fact ${cls}">${ic(icon)}<small>
 function card(o,s){
   const apply=o.applyText||(o.deadline?fmt(o.deadline):null);
   const fee=o.fee!==undefined?o.fee:o.pay;
-  const mark=o.logo?`<span class="lg"><img src="${esc(o.logo)}" alt="" loading="lazy"></span>`:`<span class="lg mono" aria-hidden="true">${esc(o.mono||(o.short||o.org||"?").slice(0,3).toUpperCase())}</span>`;
+  const mark=o.logo?`<span class="lg${o.dark?" dark":""}"><img src="${esc(o.logo)}" alt="" loading="lazy"></span>`:`<span class="lg mono" aria-hidden="true">${esc(o.mono||(o.short||o.org||"?").slice(0,3).toUpperCase())}</span>`;
   return `<article class="card" data-s="${s}">
     <div class="top">${mark}<span class="badge s-${s}">${LABEL[s]}</span></div>
     <h3>${esc(o.name)}</h3>
