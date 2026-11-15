@@ -7,7 +7,7 @@
 <meta name="description" content="A student-led initiative guiding medical students through verified internships, research and scholarship updates, sample SOPs, webinars and mentorship.">
 <meta property="og:title" content="Medinsider">
 <meta property="og:description" content="Connecting BioMedical Students to Opportunities">
-<meta property="og:image" content="https://thepavan17.github.io/medinsider/logo.jpg">
+<meta property="og:image" content="https://thepavan17.github.io/medinsider/logo.png">
 <link rel="icon" type="image/png" href="favicon.png">
 <script>document.documentElement.className="js"</script>
 <style>
@@ -28,9 +28,10 @@ button{font:inherit;letter-spacing:inherit;color:inherit}
 .more .ico{margin-right:6px}
 .more:has(.ico)::after{content:" \203A"}
 
-/* logo = cropped from the channel's logo image, shown on white so it works in dark mode too */
-.logo{display:block;background:#fff url(logo.jpg) no-repeat;background-size:108.9% auto;background-position:35.8% 47.3%;aspect-ratio:470/110;border-radius:10px}
-.nav .logo{width:132px;border-radius:7px}
+/* logo.png = transparent cut-out of the channel logo; brightened in dark mode so the navy and grey stay readable */
+.logo{display:block;background:url(logo.png) no-repeat center/contain;aspect-ratio:1416/416}
+@media (prefers-color-scheme:dark){.logo{filter:brightness(2)}}
+.nav .logo{width:118px}
 
 .nav{position:sticky;top:0;z-index:10;height:48px;background:var(--nav);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
 .nav .in{max-width:1024px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between}
@@ -48,7 +49,7 @@ button{font:inherit;letter-spacing:inherit;color:inherit}
 @keyframes f2{50%{transform:translate(-110px,60px) scale(.9)}}
 @keyframes f3{50%{transform:translate(-90px,-60px) scale(1.2)}}
 .hero>*:not(.blob){position:relative;z-index:1}
-.hero .logo{width:min(440px,84%);margin:0 auto 36px;box-shadow:0 12px 40px rgba(31,78,140,.18);animation:float 6s ease-in-out infinite}
+.hero .logo{width:min(420px,84%);margin:0 auto 36px;animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-8px)}}
 .hero h1{font-size:clamp(40px,7vw,80px);line-height:1.05;font-weight:600;letter-spacing:-.015em;margin:0 auto 20px;max-width:980px}
 .w{display:inline-block;opacity:0;transform:translateY(.5em);animation:wd .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*70ms + 200ms)}
@@ -151,7 +152,7 @@ footer .in{max-width:1024px;margin:0 auto;border-top:1px solid var(--line);paddi
 footer a{color:var(--muted)}
 
 @media (max-width:734px){
-  .nav ul{gap:14px}.nav .logo{width:108px}
+  .nav ul{gap:14px}.nav .logo{width:96px}
   .hero{padding:48px 22px 56px}
   .cover,.connect{grid-template-columns:1fr}
   .cover div{padding:28px 24px;min-height:260px}
