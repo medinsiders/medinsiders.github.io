@@ -15,7 +15,21 @@ internships:[
  links:[{k:"ig",t:"Reel",u:"https://www.instagram.com/reel/DfR3f1SAXbM/"},{k:"yt",t:"Decoding MedEngage",u:"https://www.youtube.com/watch?v=Bwi1MsX2wLY"}]},
 {name:"IISc MBBS / MPH Internship 2026",org:"Indian Institute of Science",place:"Bengaluru",type:"Internship",
  who:null,pay:"₹35,000",dates:null,deadline:null,
- links:[{k:"yt",t:"SOPs and Q&A",u:"https://www.youtube.com/watch?v=rmHBwLoY-po"}]}
+ links:[{k:"yt",t:"SOPs and Q&A",u:"https://www.youtube.com/watch?v=rmHBwLoY-po"}]},
+
+// Added 15 Nov 2026 after reading the organisers' own pages (shared first via the @medicaldora Instagram posts).
+{name:"Summer Research Fellowship 2027",org:"Indian Academy of Sciences · INSA · NASI",place:"Research institutions across India",type:"Research fellowship",
+ about:"Hands-on research project under a scientist at a reputed institution, run jointly by the three science academies.",
+ who:"MBBS 2nd, 3rd and 4th year (other UG years also listed) · 65% or more average in core subjects from Class X",
+ pay:"Monthly fellowship plus train fare (amount not stated)",dates:"Two months in 2027",deadline:"2026-11-30",
+ benefits:"Real research project and mentoring. Apply once only. You need one teacher for a recommendation.",checked:"2026-11-15",
+ links:[{k:"web",t:"Official notice and apply",u:"https://webjapps.ias.ac.in/fellowship2027/application_instructions.jsp"}]},
+{name:"Amgen Scholars Program 2027",org:"Amgen Foundation",place:"Host universities in Asia, Europe and North America",type:"Summer research programme",
+ about:"Summer research programme at partner universities. Apply to the region you are eligible for.",
+ who:"Undergraduates. The Asia programme is for students in Asia · whether Indian MBBS students qualify is not confirmed: check the Asia page",
+ pay:null,dates:"Summer 2027",deadline:"2027-02-01",
+ benefits:"Support varies by host university. Check each host's page.",checked:"2026-11-15",
+ links:[{k:"web",t:"Official site",u:"https://amgenscholars.com/"}]}
 ],
 conferences:[
 {name:"Global Healthcare Conclave 2026",org:"GAIMS",place:"Bharat Mandapam, New Delhi",type:"Conference",
