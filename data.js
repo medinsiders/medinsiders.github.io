@@ -1,6 +1,6 @@
 // Tracker entries, checked 15 Nov 2026. Sources: Pavan's own videos, Shorts and reels, plus the official ghc.gaims.org site for GHC 2026.
 // A field set to null shows as "Not stated": never guess eligibility, pay or dates, add them only when an official source says so.
-// short = the few words shown on the home-page deadline gauge.
+// short = a 2–3 word name for compact places.
 // To add an entry: copy one object, fill what is known, keep the rest null.
 // deadline (YYYY-MM-DD) makes Open / Closing soon / Closed automatic. Optional: status ("open"|"closed") to set it by hand,
 // applyText to override the "Apply by" line, perks (short chips) for extras like free workshops.
