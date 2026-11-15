@@ -20,6 +20,11 @@
 a.src{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:600;color:var(--navy);text-decoration:underline;text-underline-offset:3px}
 .chk2{font-size:16px;color:#475467;font-weight:500}
 
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 0}
+.jump a{border:1.5px solid #c4cde0;background:#fff;border-radius:999px;padding:11px 22px;font-family:Outfit,sans-serif;font-size:17px;font-weight:600;color:var(--ink)}
+.jump a:hover{border-color:var(--navy);color:var(--navy);text-decoration:none}
+#step1{padding-top:56px}#step1 .eyebrow{margin:0}
+.sec .eyebrow{font-size:16px}
 /* eligibility */
 .elig{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .ecard{background:#fff;border:1px solid var(--line);box-shadow:var(--sh);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px}
@@ -106,7 +111,10 @@ a.src{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:
     <span><svg class="ico"><use href="#rupee"/></svg>₹94.20 per US$ (RBI, 13 Nov 2026)</span>
   </div>
 
-  <section class="sec" id="eligibility">
+  <nav class="jump" aria-label="Jump to a Step"><a href="#step1">Step 1</a><a href="#step2">Step 2 CK</a><a href="#step3">Step 3</a><a href="#whole">Whole journey</a><a href="#next">Coming next</a></nav>
+
+  <section class="sec" id="step1"><span class="eyebrow">Step 1</span></section>
+  <section class="sec" id="eligibility" style="padding-top:12px">
     <h2>Can you sit <span class="gt">Step 1</span>?</h2>
     <p class="sub">Indian MBBS students and graduates register through FSMB. ECFMG decides if you are eligible.</p>
     <div class="elig">
@@ -144,7 +152,7 @@ a.src{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:
   </section>
 
   <section class="sec" id="path">
-    <h2>Your path and <span class="gt">what it costs</span></h2>
+    <h2>Step 1: <span class="gt">path and cost</span></h2>
     <p class="sub">Every US$ figure below is copied from the official page linked under it. Rupees are those dollars at the RBI reference rate.</p>
     <ol class="flow">
 
@@ -230,17 +238,145 @@ a.src{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:
         <li><span>5 · Step 1 with region fee and tax</span><span>≈ $1,068 · ₹1,00,596</span></li>
       </ul>
       <div class="big"><b>≈ $2,341</b><span>≈ ₹2,20,512</span></div>
-      <p class="note">Total of the five lines above. It leaves out travel, hotel, and everything under “Later costs”. Step 5 includes our tax assumption.</p>
+      <p class="note">Total of the five lines above. It leaves out travel, hotel, and the fees under “After the exams”. Step 5 includes our tax assumption.</p>
     </div>
 
-    <h3 style="margin:34px 0 6px;font-size:26px;color:var(--ink)">Later costs (official)</h3>
+    <h3 style="margin:34px 0 6px;font-size:26px;color:var(--ink)">After the exams (official)</h3>
     <div class="later">
-      <div class="fact"><small>Step 2 CK</small><b>≈ $1,097 · ₹1,03,375</b><span>$695 + $235 region fee + 18% tax (same assumption)</span><a class="src" href="https://www.usmle.org/apply-exams" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE fees</a></div>
-      <div class="fact"><small>Step 3</small><b>$955 · ₹89,961</b><span>USMLE lists the region fee for Steps 1 and 2 CK only. Needs ECFMG Certification.</span><a class="src" href="https://www.usmle.org/apply-exams" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE fees</a></div>
       <div class="fact"><small>ECFMG pathway application</small><b>$945 · ₹89,019</b><span>For the clinical and communication skills requirement.</span><a class="src" href="https://www.ecfmg.org/fees/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>ECFMG fees page</a></div>
       <div class="fact"><small>Diploma and transcript check</small><b>$220 · ₹20,724</b><span>$110 for the diploma and $110 for the transcript, for graduates.</span><a class="src" href="https://www.ecfmg.org/fees/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>ECFMG fees page</a></div>
     </div>
     <p class="chk2" style="margin:14px 0 0">Checked 15 Nov 2026 · Rupee rate: <a class="src" href="https://www.rbi.org.in/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>RBI reference rate, ₹94.1997 per US$ (FBIL, 13 Nov 2026)</a></p>
+  </section>
+
+
+  <section class="sec" id="step2">
+    <span class="eyebrow">Step 2 CK</span>
+    <h2>Step 2 CK: <span class="gt">who can sit it, and the cost</span></h2>
+    <p class="sub">Step 2 CK and Step 1 together are ECFMG’s medical science requirement. The rules for who can apply are the same as Step 1.</p>
+    <div class="elig">
+      <article class="ecard">
+        <span class="ib"><svg class="ico"><use href="#cap"/></svg></span>
+        <h3>Same eligibility as Step 1</h3>
+        <p>You must be an enrolled student or a graduate of a World Directory school with an ECFMG Sponsor Note, both when you apply and on exam day.</p>
+        <div class="foot"><a class="src" href="https://www.usmle.org/bulletin-information/eligibility" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE bulletin</a></div>
+      </article>
+      <article class="ecard">
+        <span class="ib"><svg class="ico"><use href="#clock"/></svg></span>
+        <h3>Seven-year clock</h3>
+        <p>Once you pass one exam, you have seven years to meet the other exam requirements for ECFMG Certification. ECFMG will not warn you if time runs out.</p>
+        <div class="foot"><a class="src" href="https://www.ecfmg.org/2026ib/time-limit-complete-exams.html" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>ECFMG booklet</a></div>
+      </article>
+    </div>
+    <ol class="flow" style="margin-top:26px">
+      <li class="node"><span class="num">1</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#book"/></svg></span><h3>UWorld Step 2 QBank</h3></div>
+            <div class="cost"><b>$459</b><small>≈ ₹43,238 · 90-day plan</small></div></div>
+          <div class="chips2"><span>30 days $349</span><span>90 days $459</span><span>180 days $519</span><span>360 days $579</span><span>730 days $749</span></div><p>The 90-day plan includes one self-assessment and shelf-exam review.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://medical.uworld.com/usmle/usmle-step-2-ck/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>UWorld Step 2 page</a></div>
+        </div></li>
+      <li class="node"><span class="num">2</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#chart"/></svg></span><h3>NBME self-assessments</h3></div>
+            <div class="cost"><b>$124</b><small>≈ ₹11,681 · 2 forms</small></div></div>
+          <p>From $62 per form, with seven Step 2 forms. Two forms are used in the total.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://www.nbme.org/examinees/self-assessments/comprehensive-clinical-science-self-assessment/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>NBME CCSSA page</a></div>
+        </div></li>
+      <li class="node"><span class="num">3</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#rupee"/></svg></span><h3>Apply for Step 2 CK on FSMB</h3></div>
+            <div class="cost"><b>≈ $1,097</b><small>≈ ₹1,03,375</small></div></div>
+          <div class="chips2"><span>Exam fee $695</span><span>India region fee $235</span><span>+ 18% tax in India</span></div><p>Same tax assumption as Step 1: 18% on the exam fee plus region fee. FSMB’s checkout amount may differ.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://www.usmle.org/apply-exams" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE fees</a><a class="src" href="https://www.fsmb.org/usmle/usmle-application-fees/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>FSMB fees</a></div>
+        </div></li>
+      <li class="node"><span class="num">4</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#building"/></svg></span><h3>Take it at a Prometric centre</h3></div>
+            <div class="cost"><span class="free">No extra fee shown</span></div></div>
+          <p>Same as Step 1: you need your scheduling permit, then book on Prometric.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://www.prometric.com/exams/usmle/" target="_blank" rel="noopener"><svg class="ico"><use href="#pin"/></svg>Prometric USMLE page</a></div>
+        </div></li>
+      <li class="node"><span class="num">5</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#flag"/></svg></span><h3>Step 2 CK result</h3></div>
+            <div class="cost"><span class="free">Included</span></div></div>
+          <p>Passing Step 1 and Step 2 CK meets the medical science requirement. ECFMG also needs a Pathway (about $945, shown below) before you can be certified.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://ecfmg.org/2026ib/medical-science-exam.html" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>ECFMG booklet</a></div>
+        </div></li>
+    </ol>
+    <div class="total">
+      <h3>Step 2 CK journey, India</h3>
+      <ul class="rows"><li><span>1 · UWorld 90 days</span><span>$459 · ₹43,238</span></li><li><span>2 · NBME, 2 forms</span><span>$124 · ₹11,681</span></li><li><span>3 · Step 2 CK with region fee and tax</span><span>≈ $1,097 · ₹1,03,375</span></li></ul>
+      <div class="big"><b>≈ $1,680</b><span>≈ ₹1,58,293</span></div>
+      <p class="note">Total of the three lines above. Travel and hotel are not included.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="step3">
+    <span class="eyebrow">Step 3</span>
+    <h2>Step 3: <span class="gt">who can sit it, and the cost</span></h2>
+    <p class="sub">Step 3 comes after you hold ECFMG Certification, so it is the latest part of the journey.</p>
+    <div class="elig">
+      <article class="ecard">
+        <span class="ib"><svg class="ico"><use href="#check"/></svg></span>
+        <h3>Pass Steps 1 and 2 CK</h3>
+        <p>You need passing scores on both before you can apply for Step 3.</p>
+        <div class="foot"><a class="src" href="https://www.usmle.org/bulletin-information/eligibility" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE bulletin</a></div>
+      </article>
+      <article class="ecard">
+        <span class="ib"><svg class="ico"><use href="#doc"/></svg></span>
+        <h3>Hold ECFMG Certification</h3>
+        <p>A valid, unexpired ECFMG Certificate is required for graduates of schools outside the US.</p>
+        <div class="foot"><a class="src" href="https://www.usmle.org/apply-exams" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE apply page</a><a class="src" href="https://www.usmle.org/bulletin-information/eligibility" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE bulletin</a></div>
+      </article>
+      <article class="ecard">
+        <span class="ib"><svg class="ico"><use href="#steth"/></svg></span>
+        <h3>One year of training advised</h3>
+        <p>USMLE recommends at least one postgraduate training year in an accredited US programme, or being near completion of it. It is advice, not a rule.</p>
+        <div class="foot"><a class="src" href="https://www.usmle.org/bulletin-information/eligibility" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE bulletin</a></div>
+      </article>
+    </div>
+    <ol class="flow" style="margin-top:26px">
+      <li class="node"><span class="num">1</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#book"/></svg></span><h3>UWorld Step 3 QBank</h3></div>
+            <div class="cost"><b>$449</b><small>≈ ₹42,296 · 90-day plan</small></div></div>
+          <div class="chips2"><span>90 days $449</span><span>180 days $499</span><span>360 days $599</span></div><p>Each plan includes two self-assessments.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://medical.uworld.com/usmle/usmle-step-3/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>UWorld Step 3 page</a></div>
+        </div></li>
+      <li class="node"><span class="num">2</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#rupee"/></svg></span><h3>Apply for Step 3 on FSMB</h3></div>
+            <div class="cost"><b>$955</b><small>≈ ₹89,961</small></div></div>
+          <p>The $955 is the 2026 and 2027 application fee. USMLE lists the region fee and India tax for Steps 1 and 2 CK only, so none is added here.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://www.usmle.org/apply-exams" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>USMLE fees</a><a class="src" href="https://www.fsmb.org/usmle/usmle-application-fees/" target="_blank" rel="noopener"><svg class="ico"><use href="#web"/></svg>FSMB fees</a></div>
+        </div></li>
+      <li class="node"><span class="num">3</span>
+        <div class="nc">
+          <div class="hd"><div class="ttl"><span class="ib"><svg class="ico"><use href="#building"/></svg></span><h3>Take it at a Prometric centre</h3></div>
+            <div class="cost"><span class="free">No extra fee shown</span></div></div>
+          <p>Book on Prometric after you receive your scheduling permit.</p>
+          <div class="meta"><span class="chk2">Checked 15 Nov 2026</span><a class="src" href="https://www.prometric.com/exams/usmle/" target="_blank" rel="noopener"><svg class="ico"><use href="#pin"/></svg>Prometric USMLE page</a></div>
+        </div></li>
+    </ol>
+    <div class="total">
+      <h3>Step 3 journey</h3>
+      <ul class="rows"><li><span>1 · UWorld 90 days</span><span>$449 · ₹42,296</span></li><li><span>2 · Step 3 application</span><span>$955 · ₹89,961</span></li></ul>
+      <div class="big"><b>≈ $1,404</b><span>≈ ₹1,32,256</span></div>
+      <p class="note">Total of the two lines above. Travel and hotel are not included.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="whole">
+    <h2>The <span class="gt">whole journey</span></h2>
+    <p class="sub">All three Steps plus the ECFMG pathway and document checks. Electives, visa, travel and stay are not included.</p>
+    <div class="total">
+      <h3>Official costs, all Steps</h3>
+      <ul class="rows"><li><span>Step 1 journey</span><span>≈ $2,341 · ₹2,20,512</span></li><li><span>Step 2 CK journey</span><span>≈ $1,680 · ₹1,58,293</span></li><li><span>Step 3 journey</span><span>$1,404 · ₹1,32,256</span></li><li><span>ECFMG pathway application</span><span>$945 · ₹89,019</span></li><li><span>Diploma and transcript check</span><span>$220 · ₹20,724</span></li></ul>
+      <div class="big"><b>≈ $6,590</b><span>≈ ₹6,20,804</span></div>
+      <p class="note">Each line comes from the section above or the “After the exams” fees. It carries the same tax assumption, and UWorld plans are the 90-day ones.</p>
+    </div>
   </section>
 
   <section class="sec" id="estimates">
@@ -272,7 +408,6 @@ a.src{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:
       <article class="ecard"><span class="ib"><svg class="ico"><use href="#plane"/></svg></span><h3>B1/B2 visa</h3><p>DS-160 yourself, or through an agent.</p><span class="tag soon"><svg class="ico"><use href="#clock"/></svg>Coming next</span></article>
       <article class="ecard"><span class="ib"><svg class="ico"><use href="#lab"/></svg></span><h3>Health tests and labs</h3><p>Immunization labs with cost and location.</p><span class="tag soon"><svg class="ico"><use href="#clock"/></svg>Coming next</span></article>
       <article class="ecard"><span class="ib"><svg class="ico"><use href="#doc"/></svg></span><h3>CV, LoR and SOP templates</h3><p>Ready-to-edit samples.</p><span class="tag soon"><svg class="ico"><use href="#clock"/></svg>Coming next</span></article>
-      <article class="ecard"><span class="ib"><svg class="ico"><use href="#chart"/></svg></span><h3>Step 2 CK and Step 3</h3><p>Preparation, eligibility and cost.</p><span class="tag soon"><svg class="ico"><use href="#clock"/></svg>Coming next</span></article>
       <article class="ecard"><span class="ib"><svg class="ico"><use href="#cap"/></svg></span><h3>Observerships</h3><p>Faculty email and university portals.</p><span class="tag soon"><svg class="ico"><use href="#clock"/></svg>Coming next</span></article>
     </div>
     <div class="cta-card"><b>Spot a wrong number?</b><a class="btn" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="Tell us on WhatsApp"><svg class="ico"><use href="#wa"/></svg>Tell us</a></div>
