@@ -12,7 +12,7 @@ const reveal=new IntersectionObserver(es=>es.forEach(e=>{
   setTimeout(()=>e.target.classList.remove("rv","in"),900);
 }),{rootMargin:"0px 0px -6% 0px"});
 function arm(el,i){el.style.setProperty("--d",Math.min(i,4)*70+"ms");el.classList.add("rv");reveal.observe(el)}
-$$("section>h2,.node,.total,.ecard,.tcard,.topic,.founder,.cta-card,.shortswrap,.reels").forEach((el,i)=>arm(el,[...el.parentNode.children].indexOf(el)));
+$$("section>h2,.stat,.tcard,.topic,.founder,.cta-card,.shortswrap,.reels").forEach((el,i)=>arm(el,[...el.parentNode.children].indexOf(el)));
 
 // Tracker cards appear one after another the first time only, so typing in the search box stays calm.
 const list=document.querySelector("#list");
@@ -25,7 +25,7 @@ const count=new IntersectionObserver(es=>es.forEach(e=>{
   const t0=performance.now(),ms=900;
   (function tick(t){const p=Math.min(1,(t-t0)/ms);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);else el.textContent=to})(t0);
 }),{threshold:.6});
-$$("#n-int,#n-conf,#h-int,#h-conf").forEach(el=>count.observe(el));
+$$("#n-int,#n-conf,#n-vid").forEach(el=>count.observe(el));
 
 // 3. Hero drifts a little with the pointer (the orb and the two floating cards move in opposite directions).
 const hv=document.querySelector(".hv");
