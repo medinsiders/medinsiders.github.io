@@ -110,7 +110,7 @@ conferences:[
 // fee: "free" | "semi" | "paid" | null (null shows "Fee not stated": only set it when the group's own page says so).
 // claimed:false = listed by Medinsider; the group's mentor has not yet applied with LinkedIn + Scholar/PubMed.
 // Sign-in for reviews and mentor applications needs a Google OAuth client ID (see backend/SETUP.md). Empty = forms show "opens soon".
-window.GOOGLE_CLIENT_ID="";
+window.GOOGLE_CLIENT_ID="1064912452637-supd6rf0nq3ukojsvuc68k7bhpguf5ct.apps.googleusercontent.com";
 window.MENTORS=[
 {id:"smak",name:"S.M.A.K (Society for Medical Academia & Knowledge)",base:"Mumbai",fee:null,claimed:false,
  about:"Research cohorts of 4–8 students over 2–3 months, mentored by faculty from India and the USA, with support from manuscript to publication. Also runs free workshops.",

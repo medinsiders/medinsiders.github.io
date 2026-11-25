@@ -130,7 +130,7 @@ const now_ = () => Utilities.formatDate(new Date(), Session.getScriptTimeZone(),
 
 // Checks the Google ID token with Google itself; returns {email, name} or null.
 function who_(token) {
-  const cid = PropertiesService.getScriptProperties().getProperty("CLIENT_ID");
+  const cid = PropertiesService.getScriptProperties().getProperty("CLIENT_ID") || "1064912452637-supd6rf0nq3ukojsvuc68k7bhpguf5ct.apps.googleusercontent.com";   // public identifier, not a secret
   if (!cid || !token) return null;
   const r = UrlFetchApp.fetch("https://oauth2.googleapis.com/tokeninfo?id_token=" + encodeURIComponent(token), { muteHttpExceptions: true });
   if (r.getResponseCode() !== 200) return null;
