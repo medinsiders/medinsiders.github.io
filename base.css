@@ -1,6 +1,6 @@
 /* Shared styles for Medinsider (redesign 17 Nov 2026, after studying Mayo, Harvard, Stanford, Cleveland Clinic, UWorld, AMBOSS, GHC): white nav, serif headlines, full-width photo hero, deep navy bands, blue and white only (the --amber token is now a light blue for text on dark areas). Body 18px, nothing under 16px.
    shortcut: the later 'layer' block overrides older rules above it instead of one clean sheet; merge them when the tracker pages are redesigned. */
-:root{color-scheme:light;--bg:#fbf6ec;--tile:#f0e5d0;--red:#b3261e;--ink:#0e1b33;--body:#3d4350;--muted:#5a6070;--navy:#0e1b33;--line:#e0d5bf;--dark:#0e1b33;--blue:#0a4fa3;--link:#0a4fa3;--steel:#8a93a3;--tint:#e4edfa;--amber:#9cc8ff;
+:root{color-scheme:light;--bg:#fff;--tile:#eef2f8;--red:#0b2a5b;--ink:#0e1b33;--body:#3d4350;--muted:#5a6070;--navy:#0e1b33;--line:#d5deec;--dark:#0e1b33;--blue:#0b2a5b;--link:#0b2a5b;--steel:#8a93a3;--tint:#e4edfa;--amber:#9cc8ff;
 --sh:none;--sh2:none;
 --ok:#05603a;--okbg:#d1fadf;--warn:#93370d;--warnbg:#fef0c7;--bad:#344054;--badbg:#e4e7ec}
 *{box-sizing:border-box}
@@ -143,7 +143,7 @@ section{padding-top:88px}
 .nav ul a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:0}
 .nav ul a:hover,.nav ul a[aria-current]{color:var(--blue);text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px}
 .btn{border-radius:8px;font-size:16px;font-weight:600;letter-spacing:0;padding:12px 22px;line-height:1.2}
-.btn:hover,.btn.light:hover{background:#083f84}
+.btn:hover,.btn.light:hover{background:#163d7a}
 .nav .btn{background:#fff;color:var(--blue);border:2px solid var(--blue);padding:9px 18px;font-size:16px;line-height:1.2;letter-spacing:0}
 .nav .btn:hover{background:var(--tint)}
 .nav .btn .ico{display:inline-block;color:#ff0033;width:22px;height:22px}
@@ -279,17 +279,17 @@ section{padding-top:96px}
 .date b.nd{color:var(--muted)}
 .date span{display:block;padding:2px 10px 8px;font-size:16px;color:var(--muted)}
 .date em{display:block;padding:5px 8px;font-style:normal;font-size:16px;font-weight:600;border-top:1px solid var(--line)}
-.date.s-open em{background:#e8f5ee;color:#05603a}
+.date.s-open em{background:var(--tint);color:var(--blue)}
 .date.s-soon em{background:var(--red);color:#fff}
-.date.s-later em{background:var(--tint);color:var(--blue)}
-.date.s-closed em,.date.s-na em{background:var(--tile);color:#4a4334}
+.date.s-later em{background:#fff;color:var(--blue)}
+.date.s-closed em,.date.s-na em{background:var(--tile);color:var(--muted)}
 .kv{margin:0;display:grid;gap:0;border-top:1px solid var(--line)}
 .kv div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
 .kv dt{color:var(--muted)}
 .kv dd{margin:0;font-weight:600;color:var(--ink);text-align:right}
 .kv dd.na{font-weight:400;color:var(--muted)}
 .card .links{margin-top:auto;padding-top:4px}
-/* palette (25 Nov 2026): blue for actions, beige for surfaces, red for deadlines and the one loud accent */
+/* palette (26 Nov 2026): navy blue and white only. --red is kept as a token name but is navy. */
 .nav{background:var(--bg)}
 .legal th{background:var(--tile)}
 .grp{border-bottom-color:var(--red)}
@@ -314,3 +314,5 @@ body{line-height:1.5}                                               /* [6] body 
 .empty b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:26px;font-weight:600;color:var(--ink);line-height:1.2}
 .empty p{margin:8px 0 18px;color:var(--body)}
 .dlg [hidden]{display:none!important}
+.s-open,.s-soon{color:var(--blue);background:var(--tint)}
+.s-closed,.s-na{color:var(--muted);background:var(--tile)}
