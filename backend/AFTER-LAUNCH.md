@@ -7,5 +7,5 @@
 3. **Link preview check**: paste `https://medinsiders.github.io/` into a WhatsApp chat with yourself. You should see the photo, title and description.
 4. **Instagram and YouTube bios**: put `medinsiders.github.io` as the link.
 5. **Speed check**: pagespeed.web.dev > enter the site > send Claude the results for anything red.
-6. **Medinsider email**: create the new Gmail, then tell Claude the address to replace pk10171721@gmail.com on the site and in the Privacy Policy.
+6. **Medinsider email**: create the new Gmail, then tell Claude the address to replace pk10171729@gmail.com on the site and in the Privacy Policy.
 7. **Analytics (optional)**: the site has none. If you add Microsoft Clarity or Google Analytics later, a cookie banner and a Privacy Policy update are needed first.
