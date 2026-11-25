@@ -19,10 +19,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600&display=swap">
-<link rel="stylesheet" href="base.css?v=47">
+<link rel="stylesheet" href="base.css?v=49">
 <style>
 /* hero: full-width photo. The student photo is painted on a canvas; rubbing erases it and shows the intern photo underneath. */
-.hero{position:relative;height:min(calc(100svh - 76px),780px);min-height:540px;overflow:hidden;background:#0e1b33 url(img/hero-intern.jpg?v=47) 80% 30%/cover;color:#fff;touch-action:pan-y}
+.hero{position:relative;height:min(calc(100svh - 76px),780px);min-height:540px;overflow:hidden;background:#0e1b33 url(img/hero-intern.jpg?v=49) 80% 30%/cover;color:#fff;touch-action:pan-y}
 .hero>img,.hero>canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 30%;transition:opacity .6s}
 .hero.done>canvas{opacity:0}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,14,28,.86) 0%,rgba(8,14,28,.55) 38%,rgba(8,14,28,0) 66%)}
@@ -151,6 +151,8 @@
 .applyrow span{font-size:17px;color:var(--muted)}
 .applyrow .btn{padding:15px 28px;font-size:18px}
 
+.dlg .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
 /* closing call */
 .ask{max-width:1300px;margin:72px auto 0;padding:0 24px}
 footer .fi{display:flex;gap:14px;align-items:center}
@@ -188,7 +190,7 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
 </div></nav>
 
 <header class="hero" id="hero">
-  <img src="img/hero-student.jpg?v=47" alt="A medical student studying in a library. Rubbing the photo shows the same student working as a research intern in a lab." width="1672" height="941">
+  <img src="img/hero-student.jpg?v=49" alt="A medical student studying in a library. Rubbing the photo shows the same student working as a research intern in a lab." width="1672" height="941">
   <canvas id="rub" aria-hidden="true"></canvas>
   <div class="txt">
     <h1>From medical student to <span class="hl">research intern.</span></h1>
@@ -212,9 +214,9 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
     <h2>Everything checked against the official source.</h2>
     <p class="lede">A student-led initiative. Deadlines and fees come from the organiser's own page or from our own sessions.</p>
     <div class="topics">
-      <a class="topic" href="#watch" data-f="opp" style="--img:url(img/opp.jpg?v=47)"><p>MedEngage, MedSRT and IISc, decoded.</p><h3>Verified opportunities</h3></a>
-      <a class="topic" href="#watch" data-f="sop" style="--img:url(img/sop.jpg?v=47)"><p>How to write your SOP and CV.</p><h3>SOP writing</h3></a>
-      <a class="topic" href="#watch" data-f="web" style="--img:url(img/web.jpg?v=47)"><p>Sessions with scholars and mentors.</p><h3>Webinars &amp; mentors</h3></a>
+      <a class="topic" href="#watch" data-f="opp" style="--img:url(img/opp.jpg?v=49)"><p>MedEngage, MedSRT and IISc, decoded.</p><h3>Verified opportunities</h3></a>
+      <a class="topic" href="#watch" data-f="sop" style="--img:url(img/sop.jpg?v=49)"><p>How to write your SOP and CV.</p><h3>SOP writing</h3></a>
+      <a class="topic" href="#watch" data-f="web" style="--img:url(img/web.jpg?v=49)"><p>Sessions with scholars and mentors.</p><h3>Webinars &amp; mentors</h3></a>
       <a class="topic" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" style="--img:url(img/collab.jpg)"><p>Updates and questions on WhatsApp.</p><h3>Join the community</h3></a>
     </div>
   </section>
@@ -291,15 +293,32 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
     <div><b>What to know</b><ul><li>This is a volunteer role. There is no pay and no certificate.</li><li>We are taking only 10 people.</li><li>Please apply only if you can give the time every week.</li></ul></div>
     <div><b>College ambassador program</b><ul><li>Prefer something lighter? Ambassadors share our updates in their college groups.</li><li>Apply through the same form.</li></ul></div>
   </div>
-  <p class="applyrow"><a class="btn" id="apply" href="mailto:pk10171729@gmail.com?subject=Joining%20the%20Medinsider%20team">Apply by email<svg class="ico"><use href="#arrow"/></svg></a><span>Send your name, college, year, the role you want, why you are interested, and your CV.</span></p>
+  <p class="applyrow"><a class="btn" id="apply" href="mailto:pk10171729@gmail.com?subject=Joining%20the%20Medinsider%20team">Apply by email<svg class="ico"><use href="#arrow"/></svg></a><span id="applynote">Send your name, college, year, the role you want, why you are interested, and your CV.</span></p>
 </section></div>
 
 <div class="ask"><div class="cta-card"><b>Know an opportunity we missed?</b><a class="btn" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Tell us</a></div></div>
 
+<dialog id="adlg" class="dlg"><button id="adlgclose" class="x" aria-label="Close">&times;</button>
+  <div id="adone" hidden><h3>Application sent</h3><p>Thank you. We read every application and will email you if you are selected.</p></div>
+  <form id="aform" novalidate>
+    <h3>Join the Medinsider team</h3>
+    <label>Full name<input name="name" required maxlength="120" autocomplete="name"></label>
+    <label>Email<input name="email" type="email" required maxlength="160" autocomplete="email" placeholder="name@college.edu"></label>
+    <label>College<input name="college" required maxlength="160"></label>
+    <label>Year<select name="year" required><option value="">Choose</option><option>1st year</option><option>2nd year</option><option>3rd year</option><option>Final year</option><option>Intern</option><option>Graduate or other</option></select></label>
+    <label>Role<select name="role" required><option value="">Choose</option><option>Tech lead</option><option>Digital media lead</option><option>Design lead</option><option>Research opportunities lead</option><option>Head, student research network</option><option>Outreach and PR lead</option><option>Speaker relations lead</option><option>College ambassador</option></select></label>
+    <label>Why are you interested?<textarea name="why" required minlength="20" maxlength="1500" rows="4"></textarea></label>
+    <label>Your CV (PDF or Word, under 3 MB)<input name="cv" type="file" required accept=".pdf,.doc,.docx,application/pdf"></label>
+    <input name="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="chk"><input type="checkbox" name="ok" required> I agree to the <a href="privacy.html" target="_blank">privacy policy</a>. This is an unpaid volunteer role.</label>
+    <button class="btn">Send application</button><p class="msg" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
+
 <footer><div class="in"><span>© Medinsider · Some photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span><span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico wa"><use href="#wa"/></svg></a><a href="mailto:pk10171729@gmail.com" aria-label="Email"><svg class="ico ml"><use href="#mail"/></svg></a></span></div><small>The photos at the top of this page are AI-generated illustrations, not real students.</small></footer>
 
-<script src="sprite.js?v=47"></script>
-<script src="data.js?v=47"></script>
-<script src="home.js?v=47"></script>
+<script src="sprite.js?v=49"></script>
+<script src="data.js?v=49"></script>
+<script src="home.js?v=49"></script>
 </body>
 </html>

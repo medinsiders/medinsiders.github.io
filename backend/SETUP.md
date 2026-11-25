@@ -23,3 +23,8 @@
   Students who sign in with an institute email (.edu, .ac.in, .edu.in ...) are verified automatically.
 - **Reviews tab:** set Approved to publish a review. Nothing shows until you do.
 - **Mentors tab:** check the LinkedIn, Scholar and PubMed links, then set Approved to list the group.
+
+# Team applications (built into the website)
+- The "Apply" button on the home page stays "Apply by email" until the new `Code.gs` is deployed (step 3 above). After that it opens the website's own form.
+- **Applications tab:** each application is a row with a link to the CV, saved in the Drive folder "Medinsider applications (private)". Set Status to Selected or Rejected for your own tracking.
+- You get an email for every application.

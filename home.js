@@ -111,3 +111,31 @@ $$(".topic[data-f]").forEach(t=>t.addEventListener("click",e=>{e.preventDefault(
   addEventListener("resize",()=>{if(Math.abs(hero.getBoundingClientRect().width-w)>1&&!hero.classList.contains("done"))paint()});
   im.onload=paint;im.src=first.currentSrc||first.src;
 })();
+
+// Team application form. It replaces "Apply by email" only when the Sheet script answers as version 2 or later,
+// so nobody's application is lost while the old script is still deployed.
+(function(){
+  const API=window.OPP_API,btn=$("#apply"),dlg=$("#adlg"),form=$("#aform"),msg=form.querySelector(".msg");
+  if(!API||!dlg.showModal)return;
+  fetch(API+"?kind=version").then(r=>r.json()).then(v=>{
+    if(!(v&&v.v>=2))return;
+    btn.firstChild.textContent="Apply now";btn.removeAttribute("target");
+    $("#applynote").textContent="Keep your CV ready. The form takes about two minutes.";
+    btn.addEventListener("click",e=>{e.preventDefault();form.hidden=false;$("#adone").hidden=true;dlg.showModal()});
+  }).catch(()=>{});
+  $("#adlgclose").onclick=()=>dlg.close();
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return}
+    const d=Object.fromEntries(new FormData(form)),file=form.elements.cv.files[0];delete d.cv;delete d.ok;
+    if(!file||file.size>3e6){msg.textContent="Please choose a CV file under 3 MB.";return}
+    const type=file.type||(/\.pdf$/i.test(file.name)?"application/pdf":/\.docx$/i.test(file.name)?"application/vnd.openxmlformats-officedocument.wordprocessingml.document":"application/msword");
+    const b=form.querySelector("button.btn");b.disabled=true;msg.textContent="Sending...";
+    d.apply=1;d.cvType=type;d.cvData=await new Promise(r=>{const x=new FileReader();x.onload=()=>r(String(x.result).split(",")[1]);x.readAsDataURL(file)});
+    fetch(API,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)}).then(r=>r.json()).then(r=>{
+      b.disabled=false;
+      if(r.ok){form.reset();msg.textContent="";form.hidden=true;$("#adone").hidden=false}
+      else msg.textContent=r.error=="cv"?"That CV file did not go through. Use a PDF or Word file under 3 MB.":r.error=="email"?"Please check your email address.":r.error=="busy"?"Too many applications right now. Please try again in an hour.":"Could not send. Please check the form and try again.";
+    }).catch(()=>{b.disabled=false;msg.textContent="Could not send. Please check your internet and try again."});
+  });
+})();

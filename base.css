@@ -313,3 +313,4 @@ body{line-height:1.5}                                               /* [6] body 
 .empty{grid-column:1/-1;padding:40px 28px;border:1px dashed var(--steel);border-radius:16px;background:#fff}  /* [19] */
 .empty b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:26px;font-weight:600;color:var(--ink);line-height:1.2}
 .empty p{margin:8px 0 18px;color:var(--body)}
+.dlg [hidden]{display:none!important}

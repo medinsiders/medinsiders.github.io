@@ -37,7 +37,7 @@ function sheet_() {
 // Run once from the editor: creates the sheet and logs its link.
 function setup() {
   Logger.log(sheet_().getParent().getUrl());
-  ["Users", "Reviews", "Mentors"].forEach(tab_);
+  ["Users", "Reviews", "Mentors", "Applications"].forEach(tab_);
   if (!ScriptApp.getProjectTriggers().some(t => t.getHandlerFunction() === "cleanIds"))
     ScriptApp.newTrigger("cleanIds").timeBased().everyHours(1).create();
 }
@@ -65,6 +65,7 @@ function flags_(d) {
 function doPost(e) {
   try {
     const d = JSON.parse(e.postData.contents);
+    if (d.apply) return json_(apply_(d));
     if (d.op) return json_(op_(d));
     if (d.hp) return json_({ ok: true });                       // honeypot: bots fill this
     const kind = d.kind === "conferences" ? "conferences" : d.kind === "internships" ? "internships" : null;
@@ -93,6 +94,7 @@ function doPost(e) {
 
 function doGet(e) {
   const k = e && e.parameter && e.parameter.kind;
+  if (k === "version") return json_({ v: 2 });          // the site shows its own application form only when this answers
   if (k === "reviews") return json_(publicReviews_());
   if (k === "mentors") return json_(publicMentors_());
   const s = sheet_(), v = s.getDataRange().getValues().slice(1), tz = Session.getScriptTimeZone();
@@ -107,9 +109,10 @@ function doGet(e) {
 const TABS = {
   Users: ["Email", "Name", "Status", "College", "Year", "Method", "ID card (deleted after check)", "Received"],
   Reviews: ["Received", "Status", "Group", "Stars", "Review", "Show name", "Name", "College", "Year", "Email (private)"],
+  Applications: ["Received", "Status", "Name", "Email", "College", "Year", "Role", "Why", "CV (private)"],
   Mentors: ["Received", "Status", "Group name", "What they offer", "Fee", "Website", "Person", "Role and institution", "LinkedIn", "Google Scholar", "PubMed", "Email (private)"]
 };
-const STATUS = { Users: ["Pending", "Verified", "Rejected"], Reviews: ["Pending", "Approved", "Rejected"], Mentors: ["Pending", "Approved", "Rejected"] };
+const STATUS = { Applications: ["Pending", "Selected", "Rejected"], Users: ["Pending", "Verified", "Rejected"], Reviews: ["Pending", "Approved", "Rejected"], Mentors: ["Pending", "Approved", "Rejected"] };
 const INSTITUTE = /\.(edu|ac\.in|edu\.in|ac\.uk|gov\.in|nic\.in|res\.in)$/i;
 
 function tab_(name) {
@@ -225,4 +228,40 @@ function cleanIds() {
       s.getRange(i + 1, 7).setValue("");
     }
   }
+}
+
+
+/* ===================== Team applications (no sign-in) ===================== */
+const ROLES = ["Tech lead", "Digital media lead", "Design lead", "Research opportunities lead", "Head, student research network",
+  "Outreach and PR lead", "Speaker relations lead", "College ambassador"];
+const CV_TYPES = { "application/pdf": 1, "application/msword": 1, "application/vnd.openxmlformats-officedocument.wordprocessingml.document": 1 };
+
+function apply_(d) {
+  try {
+    if (d.hp) return { ok: true };                                   // honeypot: bots fill this
+    const f = (k, n) => clean_(d[k]).slice(0, n);
+    const r = { name: f("name", 120), email: f("email", 160).toLowerCase(), college: f("college", 160), year: f("year", 30), role: f("role", 60), why: clean_(d.why).slice(0, 1500) };
+    if (!r.name || !r.college || !r.year || r.why.length < 20) return { ok: false, error: "missing" };
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email)) return { ok: false, error: "email" };
+    if (ROLES.indexOf(r.role) < 0) return { ok: false, error: "role" };
+    if (!CV_TYPES[d.cvType] || !d.cvData || d.cvData.length > 4.2e6) return { ok: false, error: "cv" };   // about 3 MB
+
+    const lock = LockService.getScriptLock(); lock.waitLock(10000);
+    try {
+      const c = CacheService.getScriptCache(), n = Number(c.get("apply") || 0);                             // at most 60 applications an hour
+      if (n >= 60) return { ok: false, error: "busy" };
+      c.put("apply", String(n + 1), 3600);
+      if (rows_("Applications").some(x => x[3] === r.email && x[6] === r.role)) return { ok: true };       // same person, same role: keep the first
+      const folders = DriveApp.getFoldersByName("Medinsider applications (private)");
+      const folder = folders.hasNext() ? folders.next() : DriveApp.createFolder("Medinsider applications (private)");
+      const ext = d.cvType === "application/pdf" ? ".pdf" : d.cvType === "application/msword" ? ".doc" : ".docx";
+      const url = folder.createFile(Utilities.newBlob(Utilities.base64Decode(d.cvData), d.cvType, r.name.replace(/[^\w .-]/g, "") + " CV" + ext)).getUrl();
+      const sh = tab_("Applications"), row = sh.getLastRow() + 1, cells = sh.getRange(row, 1, 1, 9);
+      cells.setNumberFormat("@");                                                                          // plain text, so "=..." in a field is never run as a formula
+      cells.setValues([[now_(), "Pending", r.name, r.email, r.college, r.year, r.role, r.why, url]]);
+      MailApp.sendEmail(Session.getEffectiveUser().getEmail(), "Medinsider: application for " + r.role,
+        r.name + " · " + r.college + " · " + r.year + "\n\n" + r.why + "\n\nCV: " + url + "\n\nAll applications:\n" + ss_().getUrl());
+      return { ok: true };
+    } finally { lock.releaseLock(); }
+  } catch (err) { return { ok: false, error: "bad" }; }
 }
