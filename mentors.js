@@ -34,7 +34,8 @@ function list(rs,how){
 }
 function draw(){
   const show=groups.filter(g=>tab=="all"||(tab=="na"?!g.fee:g.fee==tab));
-  $("#list").innerHTML=show.length?show.map(card).join(""):`<p class="card">No groups in this category yet.</p>`;
+  $("#list").innerHTML=show.length?show.map(card).join(""):`<div class="empty"><b>No ${tab=="na"?"groups without a stated fee":(FEE[tab]||"").toLowerCase()+" groups"} yet</b><p>Groups appear here once their fee is confirmed from their own page.</p><button class="btn" id="showall">Show all groups</button></div>`;
+  const sa=$("#showall");if(sa)sa.onclick=()=>{tab="all";draw()};
   $$tabs();
 }
 function $$tabs(){
@@ -88,7 +89,7 @@ function verifyForm(gid){
     <label>College<input name="college" required maxlength="120"></label>
     <label>Year<select name="year" required><option value="">Choose</option><option>1st year</option><option>2nd year</option><option>3rd year</option><option>Final year</option><option>Intern</option><option>Graduate</option></select></label>
     ${user.institutional?"":`<label>College ID card (photo, under 3 MB)<input name="idcard" type="file" accept="image/*" required></label>`}
-    <button class="btn">Submit</button><p class="msg" role="status"></p>
+    <button class="btn">Send for verification</button><p class="msg" role="status"></p>
   </form>`);
   const f=$("#vf"),msg=f.querySelector(".msg");
   f.onsubmit=async e=>{
@@ -110,7 +111,7 @@ function reviewForm(gid){
     <label>Your experience<textarea name="text" required minlength="30" maxlength="1500" rows="5" placeholder="What did you do with them, what did it cost, and what came out of it?"></textarea></label>
     <label class="chk"><input type="checkbox" name="showName"> Show my name (${esc(user.name)}). Leave unticked to post as anonymous.</label>
     <p class="note">Shown as: ${esc(user.college)} · ${esc(user.year)}. Reviews appear after a quick check by our team.</p>
-    <button class="btn">Submit review</button><p class="msg" role="status"></p>
+    <button class="btn">Post review</button><p class="msg" role="status"></p>
   </form>`);
   const f=$("#rf"),msg=f.querySelector(".msg");
   f.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f));msg.textContent="Sending...";

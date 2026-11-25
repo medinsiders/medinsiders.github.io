@@ -1,6 +1,6 @@
 /* Shared styles for Medinsider (redesign 17 Nov 2026, after studying Mayo, Harvard, Stanford, Cleveland Clinic, UWorld, AMBOSS, GHC): white nav, serif headlines, full-width photo hero, deep navy bands, blue and white only (the --amber token is now a light blue for text on dark areas). Body 18px, nothing under 16px.
    shortcut: the later 'layer' block overrides older rules above it instead of one clean sheet; merge them when the tracker pages are redesigned. */
-:root{color-scheme:light;--bg:#fff;--tile:#f3f4f6;--ink:#0e1b33;--body:#3d4350;--muted:#5a6070;--navy:#0e1b33;--line:#d5deec;--dark:#0e1b33;--blue:#0a4fa3;--link:#0a4fa3;--steel:#8a93a3;--tint:#e4edfa;--amber:#9cc8ff;
+:root{color-scheme:light;--bg:#fbf6ec;--tile:#f0e5d0;--red:#b3261e;--ink:#0e1b33;--body:#3d4350;--muted:#5a6070;--navy:#0e1b33;--line:#e0d5bf;--dark:#0e1b33;--blue:#0a4fa3;--link:#0a4fa3;--steel:#8a93a3;--tint:#e4edfa;--amber:#9cc8ff;
 --sh:none;--sh2:none;
 --ok:#05603a;--okbg:#d1fadf;--warn:#93370d;--warnbg:#fef0c7;--bad:#344054;--badbg:#e4e7ec}
 *{box-sizing:border-box}
@@ -280,12 +280,36 @@ section{padding-top:96px}
 .date span{display:block;padding:2px 10px 8px;font-size:16px;color:var(--muted)}
 .date em{display:block;padding:5px 8px;font-style:normal;font-size:16px;font-weight:600;border-top:1px solid var(--line)}
 .date.s-open em{background:#e8f5ee;color:#05603a}
-.date.s-soon em{background:#fdf1dc;color:#93370d}
+.date.s-soon em{background:var(--red);color:#fff}
 .date.s-later em{background:var(--tint);color:var(--blue)}
-.date.s-closed em,.date.s-na em{background:var(--tile);color:#3f4652}
+.date.s-closed em,.date.s-na em{background:var(--tile);color:#4a4334}
 .kv{margin:0;display:grid;gap:0;border-top:1px solid var(--line)}
 .kv div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
 .kv dt{color:var(--muted)}
 .kv dd{margin:0;font-weight:600;color:var(--ink);text-align:right}
 .kv dd.na{font-weight:400;color:var(--muted)}
 .card .links{margin-top:auto;padding-top:4px}
+/* palette (25 Nov 2026): blue for actions, beige for surfaces, red for deadlines and the one loud accent */
+.nav{background:var(--bg)}
+.legal th{background:var(--tile)}
+.grp{border-bottom-color:var(--red)}
+/* Charles Liu's 20 design tips, applied 25 Nov 2026 (tip number in brackets) */
+:root{--shadow:0 0 0 1px rgb(14 27 51 / .06),0 2px 4px rgb(14 27 51 / .06),0 12px 28px -6px rgb(14 27 51 / .16)} /* [7] ring + contact + lift */
+body{line-height:1.5}                                               /* [6] body 1.4-1.5 */
+.btn{line-height:1.4;padding:10px 20px}                             /* [2][13] label = half the height, sides 2x */
+.nav .btn{padding:8px 16px}
+.chip{line-height:1.4;padding:8px 16px}
+.lk{line-height:1.4;padding:7px 14px}
+.allbtn{line-height:1.4;padding:9px 18px}
+.seg button{line-height:1.4;padding:10px 20px}
+.sort button{line-height:1.4;padding:6px 12px}
+.badge{padding:5px 10px}
+.tsearch{line-height:1.4;padding:12px 24px 12px 48px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a6070' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") 16px center/20px no-repeat} /* [11] lone search box shows its magnifier */
+.dlg input:not([type=checkbox]):not([type=radio]),.dlg select,.dlg textarea,details.submit input:not([type=checkbox]),details.submit textarea{line-height:1.4;padding:11px 22px}
+.dlg{box-shadow:var(--shadow)}
+.rating{align-items:baseline}                                       /* [10] mixed sizes share a baseline */
+.rating .stars{align-self:center}
+.date span{padding-top:10px}                                        /* [18] gap under the big number */
+.empty{grid-column:1/-1;padding:40px 28px;border:1px dashed var(--steel);border-radius:16px;background:#fff}  /* [19] */
+.empty b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:26px;font-weight:600;color:var(--ink);line-height:1.2}
+.empty p{margin:8px 0 18px;color:var(--body)}

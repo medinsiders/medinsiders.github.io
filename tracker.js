@@ -47,7 +47,11 @@ const count=k=>pick(k).length;
 function draw(){
   const show=pick(filter);
   const group=(title,icon,list)=>list.length?`<h2 class="grp">${ic(icon)}${title} <small>${list.length}</small></h2><div class="tlist">${list.map(r=>card(r.o,r.s)).join("")}</div>`:"";
-  box.innerHTML=show.length?group("India","flag",show.filter(r=>!intl(r.o)))+group("International","plane",show.filter(r=>intl(r.o))):`<p class="card">Nothing here yet.</p>`;
+  box.innerHTML=show.length?group("India","flag",show.filter(r=>!intl(r.o)))+group("International","plane",show.filter(r=>intl(r.o))):(q||filter!="all"||scope!="all")
+      ?`<div class="empty"><b>No ${NOUN}s match${q?` "${esc(q)}"`:" these filters"}</b><p>Try a shorter search, or look at every ${NOUN} we track.</p><button class="btn" id="clear">Clear filters</button></div>`
+      :`<div class="empty"><b>No ${NOUN}s listed yet</b><p>Know one? Send it in and we will check it against the official source.</p><button class="btn" id="addone">Add a${kind=="internships"?"n":""} ${NOUN}</button></div>`;
+  const cl=$("#clear");if(cl)cl.onclick=()=>{q="";search.value="";filter="all";scope="all";paintSeg();paint()};
+  const ad=$("#addone");if(ad)ad.onclick=()=>{const s=$("#submit");s.open=true;s.scrollIntoView({behavior:"smooth"})};
 }
 const chips=$("#chips");
 const seg=document.createElement("div");seg.className="seg";seg.setAttribute("role","group");seg.setAttribute("aria-label","Where");

@@ -19,35 +19,36 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600&display=swap">
-<link rel="stylesheet" href="base.css?v=41">
+<link rel="stylesheet" href="base.css?v=46">
 <style>
 /* hero: full-width photo. The student photo is painted on a canvas; rubbing erases it and shows the intern photo underneath. */
-.hero{position:relative;height:min(calc(100svh - 76px),780px);min-height:540px;overflow:hidden;background:#0e1b33 url(img/hero-intern.jpg?v=41) 80% 30%/cover;color:#fff;touch-action:pan-y}
+.hero{position:relative;height:min(calc(100svh - 76px),780px);min-height:540px;overflow:hidden;background:#0e1b33 url(img/hero-intern.jpg?v=46) 80% 30%/cover;color:#fff;touch-action:pan-y}
 .hero>img,.hero>canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 30%;transition:opacity .6s}
 .hero.done>canvas{opacity:0}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,14,28,.86) 0%,rgba(8,14,28,.55) 38%,rgba(8,14,28,0) 66%)}
 .hero .txt{position:absolute;z-index:2;left:max(24px,calc(50% - 626px));bottom:72px;max-width:600px;pointer-events:none}
 .hero .txt a,.hero .txt button{pointer-events:auto}
 .hero h1{font-size:clamp(40px,5.6vw,76px);line-height:1.04;font-weight:500;color:#fff;margin:0 0 18px}
-.hero h1 .hl{color:var(--amber)}
+.hero h1 .hl{color:var(--tile)}
 .hero .sub{font-size:20px;line-height:1.5;color:#e9edf5;margin:0 0 28px;max-width:500px}
 .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.btn.gold{background:#fff;border-color:#fff;color:var(--ink)}
-.btn.gold:hover{background:var(--tint);border-color:var(--tint)}
-.btn.gold .ico{color:var(--ink)}
+.hero .big{font-size:27px;padding:.5em 1em;border-radius:.5em;line-height:1.4;gap:.4em;background:#fff;border-color:#fff;color:var(--ink)}
+.hero .big:hover{background:var(--tile);border-color:var(--tile)}
+.hero .big .ico{width:1em;height:1em;color:var(--ink)}
 .btn.ghost{background:transparent;border:2px solid #fff;color:#fff}
 .btn.ghost:hover{background:#fff;color:#0e1b33}
 .btn.ghost .ico{color:#25d366}
 .rubhint{position:absolute;z-index:2;right:max(24px,calc(50% - 626px));bottom:72px;display:flex;align-items:center;gap:10px;padding:10px 12px 10px 18px;border-radius:9999px;background:rgba(8,14,28,.72);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:16px;font-weight:500}
 .rubhint button{border:0;border-radius:9999px;background:#fff;color:#0e1b33;padding:8px 16px;font-size:16px;font-weight:600;cursor:pointer}
-.rubhint button:hover{background:var(--amber)}
+.rubhint button:hover{background:var(--tile)}
 
 /* quick links: three numbered doors with a photo behind, pulled up over the hero */
 .doors{position:relative;z-index:3;max-width:1300px;margin:-44px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.door{position:relative;display:flex;align-items:flex-end;gap:14px;min-height:190px;border-radius:16px;padding:22px 24px;color:#fff;overflow:hidden;box-shadow:0 14px 34px rgba(14,27,51,.22);background:linear-gradient(180deg,rgba(8,14,28,.25),rgba(8,14,28,.88)),var(--img) center/cover,var(--dark)}
+.door{position:relative;display:flex;align-items:flex-end;gap:14px;min-height:190px;border-radius:16px;padding:22px 24px;color:#fff;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(180deg,rgba(8,14,28,.25),rgba(8,14,28,.88)),var(--img) center/cover,var(--dark)}
 .door:hover{text-decoration:none}
 .door b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:56px;font-weight:600;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
-.door span{font-size:18px;font-weight:500;color:#fff}
+.door span{font-size:18px;font-weight:400;color:#fff}
+.door b+span{display:block;margin-top:14px}
 .door .go{margin-left:auto;width:44px;height:44px;padding:11px;border-radius:50%;background:#fff;color:var(--blue);transition:transform .2s}
 .door:hover .go{transform:translateX(4px)}
 
@@ -78,7 +79,7 @@
 .vid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--line)}
 .vid .play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.3);opacity:0;transition:opacity .25s}
 .vid .play i{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center}
-.vid .play i::after{content:"";border-left:16px solid #000;border-block:10px solid transparent;margin-left:4px}
+.vid .play i::after{content:"";border-left:16px solid var(--ink);border-block:10px solid transparent;margin-left:4px}
 .vid:hover .play{opacity:1}
 .vid .t{display:block;padding:16px 20px 22px;font-size:18px;font-weight:600;line-height:1.4}
 .allbtn{display:block;margin:24px auto 0;background:transparent;border:2px solid var(--blue);border-radius:8px;padding:10px 22px;font-size:16px;font-weight:600;color:var(--blue);cursor:pointer}
@@ -164,6 +165,7 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
   .hero .txt{left:18px;right:18px;bottom:64px}
   .hero .sub{font-size:18px;margin-bottom:20px}
   .rubhint{right:auto;left:18px;top:18px;bottom:auto}
+  .hero .big{font-size:24px}
   .doors{grid-template-columns:1fr;gap:12px;margin-top:-36px;padding:0 18px}
   .door{min-height:120px;padding:16px 18px}.door b{font-size:40px}
   .topics{grid-template-columns:1fr 1fr;gap:14px}.topic h3{font-size:18px;padding:12px 12px 4px}.topic p{padding:0 12px 14px}
@@ -186,13 +188,13 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
 </div></nav>
 
 <header class="hero" id="hero">
-  <img src="img/hero-student.jpg?v=41" alt="A medical student studying in a library. Rubbing the photo shows the same student working as a research intern in a lab." width="1672" height="941">
+  <img src="img/hero-student.jpg?v=46" alt="A medical student studying in a library. Rubbing the photo shows the same student working as a research intern in a lab." width="1672" height="941">
   <canvas id="rub" aria-hidden="true"></canvas>
   <div class="txt">
     <h1>From medical student to <span class="hl">research intern.</span></h1>
     <p class="sub">Connecting biomedical students to verified internships, conferences, scholarships and SOP help.</p>
     <div class="cta">
-      <a class="btn gold" href="internships.html">Find internships<svg class="ico"><use href="#arrow"/></svg></a>
+      <a class="btn big" href="internships.html">Find internships<svg class="ico"><use href="#arrow"/></svg></a>
       <a class="btn ghost" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Join the community</a>
     </div>
   </div>
@@ -210,9 +212,9 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
     <h2>Everything checked against the official source.</h2>
     <p class="lede">A student-led initiative. Deadlines and fees come from the organiser's own page or from our own sessions.</p>
     <div class="topics">
-      <a class="topic" href="#watch" data-f="opp" style="--img:url(img/opp.jpg?v=25)"><p>MedEngage, MedSRT and IISc, decoded.</p><h3>Verified opportunities</h3></a>
-      <a class="topic" href="#watch" data-f="sop" style="--img:url(img/sop.jpg?v=25)"><p>How to write your SOP and CV.</p><h3>SOP writing</h3></a>
-      <a class="topic" href="#watch" data-f="web" style="--img:url(img/web.jpg?v=25)"><p>Sessions with scholars and mentors.</p><h3>Webinars &amp; mentors</h3></a>
+      <a class="topic" href="#watch" data-f="opp" style="--img:url(img/opp.jpg?v=46)"><p>MedEngage, MedSRT and IISc, decoded.</p><h3>Verified opportunities</h3></a>
+      <a class="topic" href="#watch" data-f="sop" style="--img:url(img/sop.jpg?v=46)"><p>How to write your SOP and CV.</p><h3>SOP writing</h3></a>
+      <a class="topic" href="#watch" data-f="web" style="--img:url(img/web.jpg?v=46)"><p>Sessions with scholars and mentors.</p><h3>Webinars &amp; mentors</h3></a>
       <a class="topic" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" style="--img:url(img/collab.jpg)"><p>Updates and questions on WhatsApp.</p><h3>Join the community</h3></a>
     </div>
   </section>
@@ -276,28 +278,28 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
   <h2>Help us reach more students.</h2>
   <p class="lede">We are taking 10 volunteers to widen Medinsider's reach. The work is fully remote and takes 1 to 2 hours a week: about the time you would otherwise spend scrolling.</p>
   <div class="roles">
-    <div class="role" style="--img:url(img/role-tech.jpg)"><b>Tech Lead</b><span>Runs the website and the opportunity trackers.</span></div>
-    <div class="role" style="--img:url(img/role-media.jpg)"><b>Digital Media Lead</b><span>Edits our videos, Shorts and reels.</span></div>
-    <div class="role" style="--img:url(img/role-design.jpg)"><b>Design Lead</b><span>Designs posters for webinars and opportunities.</span></div>
-    <div class="role" style="--img:url(img/role-opps.jpg)"><b>Research Opportunities Lead</b><span>Finds and verifies research and internship opportunities.</span></div>
-    <div class="role" style="--img:url(img/role-network.jpg)"><b>Head, Student Research Network</b><span>Builds and maintains our student research groups across colleges.</span></div>
-    <div class="role" style="--img:url(img/role-pr.jpg)"><b>Outreach and PR Lead</b><span>Takes Medinsider to more colleges and students.</span></div>
-    <div class="role" style="--img:url(img/role-speaker.jpg)"><b>Speaker Relations Lead</b><span>Invites webinar speakers and coordinates with them.</span></div>
+    <div class="role" style="--img:url(img/role-tech.jpg)"><b>Tech lead</b><span>Runs the website and the opportunity trackers.</span></div>
+    <div class="role" style="--img:url(img/role-media.jpg)"><b>Digital media lead</b><span>Edits our videos, Shorts and reels.</span></div>
+    <div class="role" style="--img:url(img/role-design.jpg)"><b>Design lead</b><span>Designs posters for webinars and opportunities.</span></div>
+    <div class="role" style="--img:url(img/role-opps.jpg)"><b>Research opportunities lead</b><span>Finds and verifies research and internship opportunities.</span></div>
+    <div class="role" style="--img:url(img/role-network.jpg)"><b>Head, student research network</b><span>Builds and maintains our student research groups across colleges.</span></div>
+    <div class="role" style="--img:url(img/role-pr.jpg)"><b>Outreach and PR lead</b><span>Takes Medinsider to more colleges and students.</span></div>
+    <div class="role" style="--img:url(img/role-speaker.jpg)"><b>Speaker relations lead</b><span>Invites webinar speakers and coordinates with them.</span></div>
   </div>
   <div class="terms">
     <div><b>What you get</b><ul><li>Inside information on opportunities, before most students hear of them.</li><li>Direct contact with senior people in the field.</li></ul></div>
     <div><b>What to know</b><ul><li>This is a volunteer role. There is no pay and no certificate.</li><li>We are taking only 10 people.</li><li>Please apply only if you can give the time every week.</li></ul></div>
-    <div><b>College Ambassador Program</b><ul><li>Prefer something lighter? Ambassadors share our updates in their college groups.</li><li>Apply through the same form.</li></ul></div>
+    <div><b>College ambassador program</b><ul><li>Prefer something lighter? Ambassadors share our updates in their college groups.</li><li>Apply through the same form.</li></ul></div>
   </div>
   <p class="applyrow"><a class="btn" id="apply" href="mailto:pk10171721@gmail.com?subject=Joining%20the%20Medinsider%20team">Apply by email<svg class="ico"><use href="#arrow"/></svg></a><span>Send your name, college, year, the role you want, why you are interested, and your CV.</span></p>
 </section></div>
 
 <div class="ask"><div class="cta-card"><b>Know an opportunity we missed?</b><a class="btn" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Tell us</a></div></div>
 
-<footer><div class="in"><span>© Medinsider · Some photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span><span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico wa"><use href="#wa"/></svg></a><a href="mailto:pk10171721@gmail.com" aria-label="Email"><svg class="ico ml"><use href="#mail"/></svg></a></span></div><small>The two photos at the top of this page are AI-generated illustrations, not real students.</small></footer>
+<footer><div class="in"><span>© Medinsider · Some photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span><span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico wa"><use href="#wa"/></svg></a><a href="mailto:pk10171721@gmail.com" aria-label="Email"><svg class="ico ml"><use href="#mail"/></svg></a></span></div><small>The photos at the top of this page are AI-generated illustrations, not real students.</small></footer>
 
-<script src="sprite.js?v=41"></script>
-<script src="data.js?v=41"></script>
-<script src="home.js?v=41"></script>
+<script src="sprite.js?v=46"></script>
+<script src="data.js?v=46"></script>
+<script src="home.js?v=46"></script>
 </body>
 </html>
