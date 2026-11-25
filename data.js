@@ -1,6 +1,7 @@
 // Tracker entries, checked 15 Nov 2026. Sources: Pavan's own videos, Shorts and reels, plus the official ghc.gaims.org site for GHC 2026.
 // A field set to null shows as "Not stated": never guess eligibility, pay or dates, add them only when an official source says so.
 // short = a 2–3 word name for compact places. logo = file in img/org/ (from the organiser's own site); mono = letters shown when there is no logo; dark = logo is white, so it sits on a navy tile; fee = shown instead of pay (null hides it).
+// intl:true puts an entry under "International" on its tracker page (types starting "US conference" go there on their own); everything else is listed under "India".
 // To add an entry: copy one object, fill what is known, keep the rest null.
 // deadline (YYYY-MM-DD) makes Open / Closing soon / Closed automatic. Optional: status ("open"|"closed") to set it by hand,
 // applyText to override the "Apply by" line, perks (short chips) for extras like free workshops.
@@ -25,7 +26,7 @@ internships:[
  pay:"Monthly fellowship plus train fare (amount not stated)",dates:"Two months in 2027",deadline:"2026-11-30",
  benefits:"Real research project and mentoring. Apply once only. You need one teacher for a recommendation.",checked:"2026-11-15",
  links:[{k:"web",t:"Official notice and apply",u:"https://webjapps.ias.ac.in/fellowship2027/application_instructions.jsp"}]},
-{name:"Amgen Scholars Program 2027",short:"Amgen Scholars",logo:"img/org/amgen.svg",org:"Amgen Foundation",place:"Host universities in Asia, Europe and North America",type:"Summer research programme",
+{intl:true,name:"Amgen Scholars Program 2027",short:"Amgen Scholars",logo:"img/org/amgen.svg",org:"Amgen Foundation",place:"Host universities in Asia, Europe and North America",type:"Summer research programme",
  about:"Summer research programme at partner universities. Apply to the region you are eligible for.",
  who:"Undergraduates. The Asia programme is for students in Asia · whether Indian MBBS students qualify is not confirmed: check the Asia page",
  pay:null,dates:"Summer 2027",deadline:"2027-02-01",
@@ -104,3 +105,35 @@ conferences:[
  applyText:"Not announced · the 2026 general deadline was 8 Jun",checked:"2026-11-15",
  links:[{k:"web",t:"Official Submit Science page",u:"https://professional.heart.org/en/meetings/scientific-sessions/submit-science"}]}
 ]};
+
+// Research mentor groups, from each group's own LinkedIn "About" page (checked 21 Nov 2026).
+// fee: "free" | "semi" | "paid" | null (null shows "Fee not stated": only set it when the group's own page says so).
+// claimed:false = listed by Medinsider; the group's mentor has not yet applied with LinkedIn + Scholar/PubMed.
+// Sign-in for reviews and mentor applications needs a Google OAuth client ID (see backend/SETUP.md). Empty = forms show "opens soon".
+window.GOOGLE_CLIENT_ID="";
+window.MENTORS=[
+{id:"smak",name:"S.M.A.K (Society for Medical Academia & Knowledge)",base:"Mumbai",fee:null,claimed:false,
+ about:"Research cohorts of 4–8 students over 2–3 months, mentored by faculty from India and the USA, with support from manuscript to publication. Also runs free workshops.",
+ links:[{t:"Website",u:"https://www.smakresearch.org"},{t:"LinkedIn",u:"https://www.linkedin.com/company/s-m-a-k-soceity-for-medical-academia-knowledge/"}]},
+{id:"mrm",name:"MedResearchMate",base:"Jaipur",fee:null,claimed:false,
+ about:"Guides small teams through a full systematic review and meta-analysis, stage by stage, up to journal submission.",
+ links:[{t:"Website",u:"https://www.medresearchmate.com"},{t:"LinkedIn",u:"https://www.linkedin.com/company/medresearchmate/"}]},
+{id:"maa",name:"Meta-Analysis Academy",base:"Uruguay (online)",fee:null,claimed:false,
+ about:"Training in systematic reviews and meta-analysis from basics to advanced methods. States that it does not guarantee publications or do research for students.",
+ links:[{t:"Website",u:"https://research.metaanalysisacademy.com"},{t:"LinkedIn",u:"https://www.linkedin.com/company/metaanalysis-academy/"}]},
+{id:"trc",name:"The Research Caduceus",base:"Mumbai",fee:null,claimed:false,
+ about:"Group mentorship in batches of 5–7 for case reports, narrative reviews, original research and systematic reviews (6–16 weeks).",
+ links:[{t:"Website",u:"https://linktr.ee/theresearchcaduceus"},{t:"LinkedIn",u:"https://www.linkedin.com/company/theresearchcaduceus/"}]},
+{id:"for",name:"Friends of Research - Medical",base:"India (online)",fee:"free",claimed:false,
+ about:"An open community run by student volunteers to bring research culture to peripheral medical colleges, starting with an open repository of ICMR STS topics.",
+ links:[{t:"LinkedIn",u:"https://www.linkedin.com/company/friends-of-research/"}]},
+{id:"es",name:"Evidence Synthesis",base:"Online",fee:null,claimed:false,
+ about:"Research mentorship for international medical graduates: systematic reviews, publication guidance and research portfolios for the US match.",
+ links:[{t:"LinkedIn",u:"https://www.linkedin.com/company/evidencesynthesis/"}]},
+{id:"imgrh",name:"IMG Research Hub",base:"Lahore (online)",fee:null,claimed:false,
+ about:"Small-group systematic review and meta-analysis cohorts, a Global Burden of Disease masterclass and specialty research modules.",
+ links:[{t:"Instagram",u:"https://instagram.com/img.researchhub"},{t:"LinkedIn",u:"https://www.linkedin.com/company/img-research-hub/"}]},
+{id:"msa",name:"The MetaSynth Academy",base:"Online",fee:null,claimed:false,
+ about:"Project-based training in research methods, biostatistics, systematic reviews and meta-analysis, with one-on-one mentorship.",
+ links:[{t:"LinkedIn",u:"https://www.linkedin.com/company/the-metasynth-academy/"}]}
+];

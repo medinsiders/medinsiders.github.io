@@ -35,16 +35,27 @@ function card(o,s){
   </article>`;
 }
 
-let rows=[],filter="all",q="";
+// shortcut: community submissions carry no country, so they are listed under India; add a country field to the form if international ones start coming in
+const intl=o=>o.intl!==undefined?!!o.intl:/^US conference/.test(o.type||"");
+let rows=[],filter="all",q="",scope="all";
 const box=$("#list");
 const hit=o=>!q||[o.name,o.org,o.place,o.type,o.about,o.who,o.benefits,o.pay,o.dates].join(" ").toLowerCase().includes(q);
-const pick=k=>rows.filter(r=>hit(r.o)&&(k=="all"||(k=="open"?(r.s=="open"||r.s=="soon"):k=="later"?r.s=="later":r.s=="closed")));
+const pick=k=>rows.filter(r=>hit(r.o)&&(scope=="all"||(scope=="intl")==intl(r.o))&&(k=="all"||(k=="open"?(r.s=="open"||r.s=="soon"):k=="later"?r.s=="later":r.s=="closed")));
 const count=k=>pick(k).length;
 function draw(){
   const show=pick(filter);
-  box.innerHTML=show.length?show.map(r=>card(r.o,r.s)).join(""):`<p class="card" style="grid-column:1/-1">Nothing here yet.</p>`;
+  const group=(title,icon,list)=>list.length?`<h2 class="grp">${ic(icon)}${title} <small>${list.length}</small></h2><div class="tlist">${list.map(r=>card(r.o,r.s)).join("")}</div>`:"";
+  box.innerHTML=show.length?group("India","flag",show.filter(r=>!intl(r.o)))+group("International","plane",show.filter(r=>intl(r.o))):`<p class="card">Nothing here yet.</p>`;
 }
 const chips=$("#chips");
+const seg=document.createElement("div");seg.className="seg";seg.setAttribute("role","group");seg.setAttribute("aria-label","Where");
+function paintSeg(){
+  seg.textContent="";
+  [["all","All"],["nat","India"],["intl","International"]].forEach(([k,label])=>{
+    const b=document.createElement("button");b.textContent=label;b.setAttribute("aria-pressed",k==scope);
+    b.onclick=()=>{scope=k;paintSeg();paint()};seg.append(b);
+  });
+}
 function paint(){
   chips.textContent="";
   [["all","All"],["open","Open"],["later","Opens soon"],["closed","Closed"]].filter(([k])=>k!="later"||rows.some(r=>r.s=="later")).forEach(([k,label])=>{
@@ -61,7 +72,7 @@ function build(extra){
 const search=document.createElement("input");search.type="search";search.className="tsearch";
 search.placeholder="Search "+NOUN+"s by name, place, eligibility...";search.setAttribute("aria-label","Search "+NOUN+"s");
 search.oninput=()=>{q=search.value.trim().toLowerCase();paint()};
-chips.before(search);
+chips.before(search);chips.before(seg);paintSeg();
 build([]);
 
 // Approved community submissions. Only rows the owner set to "Approved" in the Google Sheet are returned.

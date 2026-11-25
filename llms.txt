@@ -1,0 +1,17 @@
+# Medinsider
+
+> A free, student-led website for medical students in India: verified internships, conferences and scholarships, research mentorship groups with reviews from verified students, and guidance on SOPs and CVs.
+
+Details on every listing come from the organiser's own official page. Founded by Pavan Kalyan Mukkamula, a final-year MBBS student at AIIMS New Delhi.
+
+## Pages
+- [Home](https://medinsiders.github.io/): what Medinsider is, videos and Shorts, FAQ and team
+- [Internship tracker](https://medinsiders.github.io/internships.html): internships, scholarships and research grants for medical students, split into India and International
+- [Conference tracker](https://medinsiders.github.io/conferences.html): conferences and poster competitions with deadlines and fees
+- [Research mentors](https://medinsiders.github.io/mentors.html): research mentorship groups (free, semi-paid, paid) with reviews from verified students
+- [Privacy Policy](https://medinsiders.github.io/privacy.html)
+- [Terms of Use](https://medinsiders.github.io/terms.html)
+
+## Social
+- YouTube: https://www.youtube.com/@Medinsider2025
+- Instagram: https://www.instagram.com/medinsider.pavan/

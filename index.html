@@ -5,17 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Medinsider – Connecting BioMedical Students to Opportunities</title>
 <meta name="description" content="A student-led initiative guiding medical students through verified internships, research and scholarship updates, sample SOPs, webinars and mentorship.">
-<meta property="og:title" content="Medinsider">
-<meta property="og:description" content="Connecting BioMedical Students to Opportunities">
-<meta property="og:image" content="https://medinsiders.github.io/logo.png">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://accounts.google.com/gsi/client; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com/gsi/style; font-src https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com https://*.googleusercontent.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://accounts.google.com/gsi/; frame-src https://www.youtube-nocookie.com https://www.instagram.com https://accounts.google.com/gsi/; form-action 'self' https://docs.google.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://medinsiders.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Medinsider">
+<meta property="og:title" content="Medinsider – Connecting BioMedical Students to Opportunities">
+<meta property="og:description" content="A student-led initiative guiding medical students through verified internships, research and scholarship updates, sample SOPs, webinars and mentorship.">
+<meta property="og:url" content="https://medinsiders.github.io/">
+<meta property="og:image" content="https://medinsiders.github.io/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600&display=swap">
-<link rel="stylesheet" href="base.css?v=27">
+<link rel="stylesheet" href="base.css?v=38">
 <style>
 /* hero: full-width photo. The student photo is painted on a canvas; rubbing erases it and shows the intern photo underneath. */
-.hero{position:relative;height:min(calc(100svh - 76px),780px);min-height:540px;overflow:hidden;background:#0e1b33 url(img/hero-intern.jpg?v=27) 80% 30%/cover;color:#fff;touch-action:pan-y}
+.hero{position:relative;height:min(calc(100svh - 76px),780px);min-height:540px;overflow:hidden;background:#0e1b33 url(img/hero-intern.jpg?v=38) 80% 30%/cover;color:#fff;touch-action:pan-y}
 .hero>img,.hero>canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 30%;transition:opacity .6s}
 .hero.done>canvas{opacity:0}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,14,28,.86) 0%,rgba(8,14,28,.55) 38%,rgba(8,14,28,0) 66%)}
@@ -23,12 +30,12 @@
 .hero .txt a,.hero .txt button{pointer-events:auto}
 .hero .kick{font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin:0 0 14px}
 .hero h1{font-size:clamp(40px,5.6vw,76px);line-height:1.04;font-weight:500;color:#fff;margin:0 0 18px}
-.hero h1 em{font-style:italic;color:var(--amber)}
+.hero h1 .hl{color:var(--amber)}
 .hero .sub{font-size:20px;line-height:1.5;color:#e9edf5;margin:0 0 28px;max-width:500px}
 .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.btn.gold{background:var(--amber);border-color:var(--amber);color:#0e1b33}
-.btn.gold:hover{background:#ffd466}
-.btn.gold .ico{color:#0e1b33}
+.btn.gold{background:#1a6dff;border-color:#1a6dff;color:#fff}
+.btn.gold:hover{background:#3d84ff}
+.btn.gold .ico{color:#fff}
 .btn.ghost{background:transparent;border:2px solid #fff;color:#fff}
 .btn.ghost:hover{background:#fff;color:#0e1b33}
 .btn.ghost .ico{color:#25d366}
@@ -39,15 +46,13 @@
 @keyframes rub{0%,100%{transform:translateX(-4px)}50%{transform:translateX(6px)}}
 .hero.touched .hand{animation:none}
 
-/* quick links: three numbered doors, pulled up over the photo */
+/* quick links: three numbered doors with a photo behind, pulled up over the hero */
 .doors{position:relative;z-index:3;max-width:1300px;margin:-44px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.door{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;color:var(--ink);box-shadow:0 14px 34px rgba(14,27,51,.12)}
-.door:hover{text-decoration:none;border-color:var(--blue)}
-.door .ic{flex:none;width:56px;height:56px;border-radius:14px;background:var(--blue);color:#fff;display:grid;place-items:center}
-.door .ic .ico{width:28px;height:28px}
-.door b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:40px;font-weight:600;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
-.door span{font-size:17px;color:var(--muted)}
-.door .go{margin-left:auto;color:var(--blue);transition:transform .2s}
+.door{position:relative;display:flex;align-items:flex-end;gap:14px;min-height:190px;border-radius:16px;padding:22px 24px;color:#fff;overflow:hidden;box-shadow:0 14px 34px rgba(14,27,51,.22);background:linear-gradient(180deg,rgba(8,14,28,.25),rgba(8,14,28,.88)),var(--img) center/cover,var(--dark)}
+.door:hover{text-decoration:none}
+.door b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:56px;font-weight:600;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.door span{font-size:18px;font-weight:500;color:#fff}
+.door .go{margin-left:auto;width:44px;height:44px;padding:11px;border-radius:50%;background:#fff;color:var(--blue);transition:transform .2s}
 .door:hover .go{transform:translateX(4px)}
 
 /* what you'll find */
@@ -84,17 +89,22 @@
 .allbtn:hover{background:var(--blue);color:#fff}
 .reels{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;scrollbar-width:none}
 .reels::-webkit-scrollbar{display:none}
-.reels iframe{flex:0 0 min(328px,80vw);height:600px;border:0;border-radius:16px;background:var(--tile);scroll-snap-align:start}
+.reels>*{flex:0 0 min(328px,80vw);height:600px;border:0;border-radius:16px;background:var(--tile);scroll-snap-align:start}
+.embed{position:relative;cursor:pointer;background:var(--dark) center/cover no-repeat;color:#fff;display:grid;place-items:center;padding:0}
+#reels-track .embed{background:var(--blue)}
+.embed .pl{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.embed .pl::after{content:"";border-left:18px solid var(--blue);border-block:11px solid transparent;margin-left:5px}
+.embed .lb{position:absolute;left:12px;right:12px;bottom:12px;padding:6px 10px;border-radius:8px;background:rgba(8,14,28,.72);font-size:16px;text-align:center}
+.embed:hover .pl,.embed:focus-visible .pl{transform:scale(1.06)}
 .shortswrap{max-width:818px;margin:0 auto}
 #shorts-track{--sw:min(260px,64vw);align-items:flex-start}
-#shorts-track iframe{flex:0 0 var(--sw);width:var(--sw);height:calc(var(--sw)*1.7778)}
-.reels iframe[hidden]{display:none}
+#shorts-track>*{flex:0 0 var(--sw);width:var(--sw);height:calc(var(--sw)*1.7778)}
+.reels>[hidden]{display:none}
 
 /* founder: dark band with a light that follows the cursor */
 .band{position:relative;margin-top:88px;background:var(--dark);color:#fff;padding:80px 24px;overflow:hidden}
-.band::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%),rgba(60,130,255,.30),transparent 70%)}
 .founder{position:relative;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:center}
-.avatar{position:relative;width:220px;height:220px;margin:auto;border-radius:50%;background:#fff;border:4px solid var(--amber)}
+.avatar{position:relative;width:220px;height:220px;margin:auto;border-radius:50%;background:#fff;border:4px solid #fff}
 .avatar b,.avatar img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover}
 .avatar img{object-position:50% 12%}
 .avatar b{display:grid;place-items:center;font-size:56px;font-weight:600;color:var(--ink)}
@@ -105,6 +115,43 @@
 .founder summary{cursor:pointer;color:#fff;font-weight:600;font-size:18px;text-decoration:underline}
 .founder .links{display:flex;gap:12px;flex-wrap:wrap}
 .founder .soc{background:#fff}
+
+/* FAQ */
+.faq{max-width:900px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 4px;font-family:"Source Serif 4",Georgia,serif;font-size:24px;font-weight:500;line-height:1.25;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:36px;height:36px;border-radius:50%;background:var(--tint);color:var(--blue);display:grid;place-items:center;font-family:Inter,sans-serif;font-size:24px;font-weight:500;transition:transform .2s}
+.faq details[open] summary::after{content:"\2212";background:var(--blue);color:#fff}
+.faq summary:hover{color:var(--blue)}
+.faq .a{padding:0 4px 24px;max-width:720px}
+.faq .a p{margin:0 0 10px}
+.faq .a ul{margin:0;padding-left:22px}
+.faq .a li{margin-bottom:6px}
+
+/* core team */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mate{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start}
+.mate i{flex:none;width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:20px}
+.mate b{display:block;font-size:20px;color:var(--ink);line-height:1.25}
+.mate span{display:block;margin-top:4px;font-size:16px;line-height:1.45;color:var(--muted)}
+
+.mate em{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:9999px;background:var(--tint);color:var(--blue);font-style:normal;font-size:16px;font-weight:600}
+
+/* recruiting */
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.role{min-height:230px;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;color:#fff;background:linear-gradient(180deg,rgba(8,14,28,.2) 0%,rgba(8,14,28,.92) 68%),var(--img) center/cover,var(--dark)}
+.role b{font-family:"Source Serif 4",Georgia,serif;font-size:22px;font-weight:600;line-height:1.2;color:#fff}
+.role span{font-size:16px;line-height:1.45;color:#e9edf5}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.terms>div{border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.terms b{display:block;margin-bottom:10px;font-size:19px;color:var(--ink)}
+.terms ul{margin:0;padding-left:20px;font-size:17px;line-height:1.5}
+.terms li{margin-bottom:6px}
+.applyrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:28px 0 0}
+.applyrow span{font-size:17px;color:var(--muted)}
+.applyrow .btn{padding:15px 28px;font-size:18px}
 
 /* closing call */
 .ask{max-width:1300px;margin:72px auto 0;padding:0 24px}
@@ -121,28 +168,31 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
   .hero .sub{font-size:18px;margin-bottom:20px}
   .rubhint{right:auto;left:18px;top:18px;bottom:auto}
   .doors{grid-template-columns:1fr;gap:12px;margin-top:-36px;padding:0 18px}
-  .door{padding:16px 18px}.door b{font-size:32px}
+  .door{min-height:120px;padding:16px 18px}.door b{font-size:40px}
   .topics{grid-template-columns:1fr 1fr;gap:14px}.topic h3{font-size:18px;padding:12px 12px 4px}.topic p{padding:0 12px 14px}
   .band{padding:56px 18px;margin-top:64px}
+  .faq summary{font-size:20px;padding:18px 2px}
+  .team{grid-template-columns:1fr;gap:12px}
+  .roles{grid-template-columns:1fr 1fr;gap:12px}.role{min-height:190px;padding:14px}.role b{font-size:19px}.terms{grid-template-columns:1fr;gap:12px}
   .founder{grid-template-columns:1fr;gap:28px;text-align:center}
   .founder .links{justify-content:center}
   .ask{padding:0 18px}
 }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Medinsider", "url": "https://medinsiders.github.io/", "logo": "https://medinsiders.github.io/logo.png", "description": "A student-led initiative guiding medical students through verified internships, research and scholarship updates, sample SOPs, webinars and mentorship.", "founder": {"@type": "Person", "name": "Pavan Kalyan Mukkamula"}, "sameAs": ["https://www.youtube.com/@Medinsider2025", "https://www.instagram.com/medinsider.pavan/"]}</script>
 </head>
 <body>
 <nav class="nav"><div class="in">
   <a href="./" aria-label="Medinsider home"><span class="logo" role="img" aria-label="Medinsider"></span></a>
-  <ul><li class="opt"><a href="./" aria-current="page">Home</a></li><li><a href="internships.html">Internships</a></li><li><a href="conferences.html">Conferences</a></li><li><a href="#watch">Watch</a></li><li class="opt"><a href="#founder">Founder</a></li></ul>
-  <a class="btn" href="https://www.youtube.com/@Medinsider2025?sub_confirmation=1" target="_blank" rel="noopener" aria-label="Subscribe on YouTube"><svg class="ico"><use href="#yt"/></svg>Subscribe</a>
+  <ul><li class="opt"><a href="./" aria-current="page">Home</a></li><li><a href="internships.html">Internships</a></li><li><a href="conferences.html">Conferences</a></li><li><a href="mentors.html">Mentors</a></li><li class="opt"><a href="#watch">Watch</a></li><li class="opt"><a href="#founder">Founder</a></li></ul>
+  <span class="act"><a class="soc" href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a class="btn" href="https://www.youtube.com/@Medinsider2025?sub_confirmation=1" target="_blank" rel="noopener" aria-label="Subscribe on YouTube"><svg class="ico"><use href="#yt"/></svg>Subscribe</a></span>
 </div></nav>
 
 <header class="hero" id="hero">
-  <img src="img/hero-student.jpg?v=27" alt="A medical student studying in a library. Rubbing the photo shows the same student working as a research intern in a lab." width="1672" height="941">
+  <img src="img/hero-student.jpg?v=38" alt="A medical student studying in a library. Rubbing the photo shows the same student working as a research intern in a lab." width="1672" height="941">
   <canvas id="rub" aria-hidden="true"></canvas>
   <div class="txt">
-    <p class="kick">Medinsider</p>
-    <h1>From medical student to <em>research intern.</em></h1>
+    <h1>From medical student to <span class="hl">research intern.</span></h1>
     <p class="sub">Connecting biomedical students to verified internships, conferences, scholarships and SOP help.</p>
     <div class="cta">
       <a class="btn gold" href="internships.html">Find internships<svg class="ico"><use href="#arrow"/></svg></a>
@@ -153,26 +203,24 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
 </header>
 
 <div class="doors">
-  <a class="door tilt" href="internships.html"><span class="ic"><svg class="ico line"><use href="#lab"/></svg></span><span><b id="n-int">·</b><span>Internships tracked</span></span><svg class="ico go"><use href="#arrow"/></svg></a>
-  <a class="door tilt" href="conferences.html"><span class="ic"><svg class="ico line"><use href="#mic"/></svg></span><span><b id="n-conf">·</b><span>Conferences tracked</span></span><svg class="ico go"><use href="#arrow"/></svg></a>
-  <a class="door tilt" href="#watch"><span class="ic"><svg class="ico"><use href="#yt"/></svg></span><span><b id="n-vid">·</b><span>Videos, Shorts and reels</span></span><svg class="ico go"><use href="#arrow"/></svg></a>
+  <a class="door" href="internships.html" style="--img:url(img/intern.jpg)"><span><b id="n-int">·</b><span>Internships tracked</span></span><svg class="ico go"><use href="#arrow"/></svg></a>
+  <a class="door" href="conferences.html" style="--img:url(img/conf.jpg)"><span><b id="n-conf">·</b><span>Conferences tracked</span></span><svg class="ico go"><use href="#arrow"/></svg></a>
+  <a class="door" href="#watch" style="--img:url(https://i.ytimg.com/vi/iguTtv4-fxc/hqdefault.jpg)"><span><b id="n-vid">·</b><span>Videos, Shorts and reels</span></span><svg class="ico go"><use href="#arrow"/></svg></a>
 </div>
 
 <main class="wrap">
   <section id="find">
-    <span class="eyebrow">What you get</span>
     <h2>Everything checked against the official source.</h2>
     <p class="lede">A student-led initiative. Deadlines and fees come from the organiser's own page or from our own sessions.</p>
     <div class="topics">
-      <a class="topic tilt" href="#watch" data-f="opp" style="--img:url(img/opp.jpg?v=25)"><p>MedEngage, MedSRT and IISc, decoded.</p><h3>Verified opportunities</h3></a>
-      <a class="topic tilt" href="#watch" data-f="sop" style="--img:url(img/sop.jpg?v=25)"><p>How to write your SOP and CV.</p><h3>SOP writing</h3></a>
-      <a class="topic tilt" href="#watch" data-f="web" style="--img:url(img/web.jpg?v=25)"><p>Sessions with scholars and mentors.</p><h3>Webinars &amp; mentors</h3></a>
-      <a class="topic tilt" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" style="--img:url(img/collab.jpg)"><p>Updates and questions on WhatsApp.</p><h3>Join the community</h3></a>
+      <a class="topic" href="#watch" data-f="opp" style="--img:url(img/opp.jpg?v=25)"><p>MedEngage, MedSRT and IISc, decoded.</p><h3>Verified opportunities</h3></a>
+      <a class="topic" href="#watch" data-f="sop" style="--img:url(img/sop.jpg?v=25)"><p>How to write your SOP and CV.</p><h3>SOP writing</h3></a>
+      <a class="topic" href="#watch" data-f="web" style="--img:url(img/web.jpg?v=25)"><p>Sessions with scholars and mentors.</p><h3>Webinars &amp; mentors</h3></a>
+      <a class="topic" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" style="--img:url(img/collab.jpg)"><p>Updates and questions on WhatsApp.</p><h3>Join the community</h3></a>
     </div>
   </section>
 
   <section id="watch">
-    <span class="eyebrow">Videos</span>
     <h2 id="vh">Watch.</h2>
     <p class="fnote" id="fnote"></p>
     <div class="chips" id="chips" role="group" aria-label="Filter"></div>
@@ -187,19 +235,29 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
     <div class="sub2"><b><svg class="ico ig"><use href="#ig"/></svg>Reels</b><div class="arrows"><button id="rl" aria-label="Previous reels">&#8249;</button><button id="rr" aria-label="Next reels">&#8250;</button></div></div>
     <div class="reels" id="reels-track"></div>
   </section>
+
+  <section id="faq" class="faq">
+    <h2>Frequently asked questions.</h2>
+    <details open><summary>Why does Medinsider exist?</summary><div class="a"><p>Most of us hear about scholarships, internships and research opportunities very late, sometimes six months or a year after the right time to apply. Often it depends on which city you are from or which college you study in.</p><p>Students at premier institutes face this too. Our founder came to know about many of these opportunities only towards the end of his third year, and it made him ask why access to information is so unequal.</p></div></details>
+    <details><summary>Why is this information so hard to find?</summary><div class="a"><p>Many government and private scholarships do not invest in outreach or awareness. So the information moves around in small closed groups instead of reaching every deserving student.</p><p>Social media is full of "How to get into XYZ institute" videos, but it rarely explains the bigger picture of research, innovation and healthcare entrepreneurship.</p></div></details>
+    <details><summary>What does Medinsider help with?</summary><div class="a"><p>We break down each opportunity, and we run webinars on the things students are usually unsure about:</p><ul><li>How to write a strong Statement of Purpose</li><li>How to structure an effective CV</li><li>What selectors actually look for in an application</li></ul><p>None of this is taught in our curriculum. We are usually told only to study well, prepare for exams and rely on coaching platforms.</p></div></details>
+    <details><summary>What is our vision?</summary><div class="a"><p>India needs more healthcare researchers, innovators and entrepreneurs. We believe everyone deserves equal access to opportunities, whatever their:</p><ul><li>College</li><li>City</li><li>Background</li><li>Year of study</li></ul><p>Our goal is to democratise access to information, so that students can make informed decisions early instead of discovering opportunities too late.</p></div></details>
+    <details><summary>Is it paid?</summary><div class="a"><p>No. Everything here is free. Share it with your friends.</p></div></details>
+    <details><summary>Who runs it?</summary><div class="a"><p>Medinsider is student-led. It was founded by <a href="#founder">Pavan Kalyan Mukkamula</a>, a final-year MBBS student at AIIMS New Delhi, with co-founder Sana Sinha, and is run with a <a href="#team">core team</a>.</p></div></details>
+  </section>
 </main>
 
-<div class="band" id="founder" data-glow>
+<div class="band" id="founder">
 
         <div class="founder">
-      <div class="avatar"><b>PK</b><img src="founder.jpg" alt="Pavan Kalyan Mukkamula" onerror="this.remove()"></div>
+      <div class="avatar"><b>PK</b><img src="founder.jpg" alt="Pavan Kalyan Mukkamula"></div>
       <div>
         <p class="role">Founder, Medinsider</p>
         <h3>Pavan Kalyan Mukkamula</h3>
         <p class="tag">AIIMS New Delhi · IISc internship · USMLE Step 1</p>
         <details><summary>About</summary><p>I am an MBBS student at AIIMS New Delhi with a strong interest in biomedical engineering, AI, and technology in healthcare. I am passionate about developing innovative, tech-driven solutions to improve patient care and clinical outcomes. Currently exploring ways to integrate AI and digital health tools into practical healthcare applications. Aspiring to launch my own startup at the intersection of medicine and technology.</p></details>
         <div class="links">
-          <a class="soc" href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="Pavan on LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a class="soc" href="mailto:mukkamulapavankalyan@gmail.com" aria-label="Email Pavan"><svg class="ico ml"><use href="#mail"/></svg></a>
+          <a class="soc" href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="Pavan on LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a class="soc" href="mailto:pk10171721@gmail.com" aria-label="Email Pavan"><svg class="ico ml"><use href="#mail"/></svg></a>
           <a class="soc" href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a>
           <a class="soc" href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a>
           <a class="soc" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp community"><svg class="ico wa"><use href="#wa"/></svg></a>
@@ -208,118 +266,41 @@ footer small{display:block;max-width:1300px;margin:14px auto 0;font-size:16px;co
     </div>
   </div>
 
-<div class="ask"><div class="cta-card" data-glow><b>Know an opportunity we missed?</b><a class="btn" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Tell us</a></div></div>
+<div class="wrap"><section id="team">
+  <h2>The people behind it.</h2>
+  <div class="team">
+    <div class="mate"><i aria-hidden="true">SS</i><span><b>Sana Sinha</b><em>Co-founder</em><span>Leads marketing, webinar presentations and ideation. Lady Shri Ram College for Women; Associate at ZS.</span></span></div>
+    <div class="mate"><i aria-hidden="true">AP</i><span><b>Amith Paruchuri</b><span>MBBS, AIIMS New Delhi. Khorana Scholar at Harvard Medical School.</span></span></div>
+    <div class="mate"><i aria-hidden="true">PK</i><span><b>Pavan Raju Kola</b><span>MBBS intern, AIIMS New Delhi. Interested in neurology, oncology and computational biology.</span></span></div>
+  </div>
+</section>
 
-<footer><div class="in"><span>© Medinsider · Community photo via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico wa"><use href="#wa"/></svg></a><a href="mailto:mukkamulapavankalyan@gmail.com" aria-label="Email"><svg class="ico ml"><use href="#mail"/></svg></a></span></div><small>The two photos at the top of this page are AI-generated illustrations, not real students.</small></footer>
+<section id="join">
+  <h2>Help us reach more students.</h2>
+  <p class="lede">We are taking 10 volunteers to widen Medinsider's reach. The work is fully remote and takes 1 to 2 hours a week: about the time you would otherwise spend scrolling.</p>
+  <div class="roles">
+    <div class="role" style="--img:url(img/role-tech.jpg)"><b>Tech Lead</b><span>Runs the website and the opportunity trackers.</span></div>
+    <div class="role" style="--img:url(img/role-media.jpg)"><b>Digital Media Lead</b><span>Edits our videos, Shorts and reels.</span></div>
+    <div class="role" style="--img:url(img/role-design.jpg)"><b>Design Lead</b><span>Designs posters for webinars and opportunities.</span></div>
+    <div class="role" style="--img:url(img/role-opps.jpg)"><b>Research Opportunities Lead</b><span>Finds and verifies research and internship opportunities.</span></div>
+    <div class="role" style="--img:url(img/role-network.jpg)"><b>Head, Student Research Network</b><span>Builds and maintains our student research groups across colleges.</span></div>
+    <div class="role" style="--img:url(img/role-pr.jpg)"><b>Outreach and PR Lead</b><span>Takes Medinsider to more colleges and students.</span></div>
+    <div class="role" style="--img:url(img/role-speaker.jpg)"><b>Speaker Relations Lead</b><span>Invites webinar speakers and coordinates with them.</span></div>
+  </div>
+  <div class="terms">
+    <div><b>What you get</b><ul><li>Inside information on opportunities, before most students hear of them.</li><li>Direct contact with senior people in the field.</li></ul></div>
+    <div><b>What to know</b><ul><li>This is a volunteer role. There is no pay and no certificate.</li><li>We are taking only 10 people.</li><li>Please apply only if you can give the time every week.</li></ul></div>
+    <div><b>College Ambassador Program</b><ul><li>Prefer something lighter? Ambassadors share our updates in their college groups.</li><li>Apply through the same form.</li></ul></div>
+  </div>
+  <p class="applyrow"><a class="btn" id="apply" href="mailto:pk10171721@gmail.com?subject=Joining%20the%20Medinsider%20team">Apply by email<svg class="ico"><use href="#arrow"/></svg></a><span>Send your name, college, year, the role you want, why you are interested, and your CV.</span></p>
+</section></div>
 
-<script src="sprite.js?v=27"></script>
-<script src="data.js?v=27"></script>
-<script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+<div class="ask"><div class="cta-card"><b>Know an opportunity we missed?</b><a class="btn" href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Tell us</a></div></div>
 
-// tracker counts come from data.js
-$("#n-int").textContent=OPP.internships.length;
-$("#n-conf").textContent=OPP.conferences.length;
+<footer><div class="in"><span>© Medinsider · Some photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span><span class="fi"><a href="https://www.youtube.com/@Medinsider2025" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico yt"><use href="#yt"/></svg></a><a href="https://www.instagram.com/medinsider.pavan/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ig"><use href="#ig"/></svg></a><a href="https://www.linkedin.com/in/mukkamula-pavan-kalyan-8583682a3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico li"><use href="#li"/></svg></a><a href="https://chat.whatsapp.com/HIcrRCOnMXx1Umobu8Nfl6" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico wa"><use href="#wa"/></svg></a><a href="mailto:pk10171721@gmail.com" aria-label="Email"><svg class="ico ml"><use href="#mail"/></svg></a></span></div><small>The two photos at the top of this page are AI-generated illustrations, not real students.</small></footer>
 
-// Tags: opp = verified opportunities (MedEngage, MedSRT, IISc), sop = SOP/CV writing, web = webinars & mentorship.
-// shortcut: hand-maintained lists with tags guessed from titles and captions; add a line at the top for each new video, Short or reel
-const V=[ // [YouTube id, title, tags]
-["iguTtv4-fxc","MBBS to IIM Ahmedabad to Bain: Is an MBA Worth It for Doctors?","web"],
-["FfjBtuhkMA0","Everyone Says “Write a Good SOP” but Nobody Shows You How: MedSRT SOP and CV, Step by Step","sop opp"],
-["_cXrIE4NuPw","Underselling vs Overselling : Getting the balance right in your SOP","sop"],
-["Oat_hfZjSiY","The Good OL' DAYS : The MedSRT experience","opp"],
-["tYf1YkkxCvE","Is MedSRT Just for Your CV? The Big Picture from a MedSRT Scholar","opp"],
-["RfWnzNxs0CE","Mirch Masala : Building the Perfect Appplication","sop"],
-["zbIxmXxqhow","Don’t Apply to MedSRT-6 Before Watching This (Deadline 26 Oct)","opp"],
-["rmHBwLoY-po","Decoding MBBS / MPH IISc INTERSHIP 2026","opp"],
-["Bwi1MsX2wLY","Decoding MedEngage Scholarship 2025","opp"],
-["6MeForWec0w","SOP Writing Part 3 | Trushdeep Agrawal – Scholar & Founder, Association of Physicians & Engineers","sop web"],
-["KBzmWtcjZcg","SOP Writing Part 2 | Swastik Pandita – IISc Intern & MedEngage Scholar","sop web"],
-["jny_66ORkHY","SOP Writing Part 1 | Dr Surya Shanbhog – Khorana, ICMR-STS & Research Scholar","sop web"],
-["4Sn6tr0BH-4","Decode the Felix | Journey of Dr Vinay Suresh – Felix Scholar, IISER Pune Intern & Rhodes Finalist","web"],
-["QQ7dBUl3DEw","Decode the Rhodes Scholarship | Journey of Dr Varad Puntambekar – Rhodes, Khorana & ICMR-STS Scholar","web"]
-];
-const S=[ // YouTube Shorts: [id, tags]
-["Gbpf2gtUzus","opp"],["EsD3_DshBS8","opp"],["QajNfIBDnIs","opp"],["WXqb10lkVB4","sop opp"],["k_xge0YR4kg","sop opp"],
-["jwwn7jBA_3o","opp"],["cvR13iC6LK4",""],["HexB79E_tXA","web"],["Dv_coW2Ydcg","web"],["4DmuFP8Z0X8","web"],
-["YXeR2SIOiK8","web"],["iLTVMtdPdZ8","web"],["_--azyzNeYM","web"],["78JuE1GoQlI","web"]
-];
-const R=[ // Instagram reels, tags read from each caption: [code, tags]
-["DfR3f1SAXbM","opp"],["De_9JAcgqO6","web"],["De9pXQWgWQl","opp"],["De6xwedg34Y","sop"],["Dey3ucKgglx","sop opp"],
-["DewVjSuks31","sop"],["DewA62NA1MQ","sop"],["Det23xwEpjQ","sop opp"],["DeqNGprko9j","opp"],["DejI6WegA4e","opp"]
-];
-$("#n-vid").textContent=V.length+S.length+R.length;
-const F=[["all","All"],["opp","Verified opportunities"],["sop","SOP writing"],["web","Webinars & mentors"]];
-const NOTE={opp:"MedEngage, MedSRT and IISc.",sop:"How to write your SOP and CV.",web:"Sessions with scholars and mentors."};
-
-const g=$("#grid");
-V.forEach(([id,t,tags])=>{
-  const a=document.createElement("a");a.className="vid";a.target="_blank";a.rel="noopener";a.dataset.tags=tags;
-  a.href="https://www.youtube.com/watch?v="+id;
-  a.innerHTML='<span class="th"><img loading="lazy" alt=""><span class="play"><i></i></span></span><span class="t"></span>';
-  a.querySelector("img").src="https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
-  a.querySelector(".t").textContent=t;
-  g.append(a);
-});
-function row(track,items,title,src){
-  const el=$(track);
-  items.forEach(([id,tags])=>{const f=document.createElement("iframe");f.loading="lazy";f.title=title;f.allowFullscreen=true;f.allow="encrypted-media; picture-in-picture";f.dataset.tags=tags;f.src=src(id);el.append(f)});
-  return el;
-}
-const st=row("#shorts-track",S,"Medinsider YouTube Short",id=>"https://www.youtube-nocookie.com/embed/"+id+"?rel=0&playsinline=1");
-const rt=row("#reels-track",R,"Medinsider Instagram reel",id=>"https://www.instagram.com/reel/"+id+"/embed");
-[["#sl","#sr",st],["#rl","#rr",rt]].forEach(([l,r,t])=>{const step=()=>((t.querySelector("iframe:not([hidden])")||{}).offsetWidth||326)+14;$(l).onclick=()=>t.scrollBy({left:-step(),behavior:"smooth"});$(r).onclick=()=>t.scrollBy({left:step(),behavior:"smooth"})});
-
-// show 6 videos first; a filter or "Show all" reveals the rest
-const more=$("#more");
-more.textContent="Show all "+V.length;
-more.onclick=()=>{g.classList.toggle("cap");more.textContent=g.classList.contains("cap")?"Show all "+V.length:"Show fewer"};
-
-// one filter drives the chips, the video grid, the Shorts row and the reels row
-function setFilter(k){
-  const hit=el=>k=="all"||el.dataset.tags.split(" ").includes(k);
-  $$(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.k==k));
-  $$(".vid").forEach(v=>{const show=hit(v);v.hidden=!show;if(show){v.style.animation="none";v.offsetWidth;v.style.animation=""}});
-  [st,rt].forEach(t=>{[...t.children].forEach(f=>f.hidden=!hit(f));t.scrollTo({left:0})});
-  g.classList.toggle("cap",k=="all");more.style.display=k=="all"?"":"none";
-  if(k=="all")more.textContent="Show all "+V.length;
-  $("#vh").textContent=k=="all"?"Watch.":F.find(x=>x[0]==k)[1]+".";
-  const n=$("#fnote");n.textContent=k=="all"?"":NOTE[k]+" ";
-  if(k!="all"){const a=document.createElement("a");a.href="#";a.textContent="Show all";a.onclick=e=>{e.preventDefault();setFilter("all")};n.append(a)}
-}
-F.forEach(([k,label])=>{
-  const b=document.createElement("button");b.className="chip";b.textContent=label;b.dataset.k=k;b.setAttribute("aria-pressed",k=="all");
-  b.onclick=()=>setFilter(k);$("#chips").append(b);
-});
-$$(".topic[data-f]").forEach(t=>t.addEventListener("click",e=>{e.preventDefault();setFilter(t.dataset.f);$("#watch").scrollIntoView({behavior:"smooth"})}));
-// Rub to reveal: the student photo is drawn on the canvas and erased under the pointer, showing the intern photo behind it.
-(function(){
-  const hero=$("#hero"),cv=$("#rub"),ctx=cv.getContext("2d"),first=hero.querySelector("img"),btn=$("#rubbtn"),im=new Image();
-  let last=null,w=0;
-  function paint(){
-    const r=hero.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2),px=innerWidth<=900?.78:.8;
-    cv.width=r.width*d;cv.height=r.height*d;w=r.width;
-    const s=Math.max(cv.width/im.naturalWidth,cv.height/im.naturalHeight),iw=im.naturalWidth*s,ih=im.naturalHeight*s;
-    ctx.globalCompositeOperation="source-over";ctx.drawImage(im,(cv.width-iw)*px,(cv.height-ih)*.3,iw,ih); // same crop as the CSS 80% 30%
-    first.style.opacity=0;
-  }
-  function dab(x,y){
-    const k=cv.width/w,R=(innerWidth<=900?64:96)*k,g=ctx.createRadialGradient(x*k,y*k,R*.35,x*k,y*k,R);
-    g.addColorStop(0,"rgba(0,0,0,1)");g.addColorStop(1,"rgba(0,0,0,0)");
-    ctx.globalCompositeOperation="destination-out";ctx.fillStyle=g;ctx.beginPath();ctx.arc(x*k,y*k,R,0,7);ctx.fill();
-  }
-  hero.addEventListener("pointermove",e=>{
-    if(hero.classList.contains("done")||!w)return;
-    const r=hero.getBoundingClientRect(),p={x:e.clientX-r.left,y:e.clientY-r.top};
-    if(last){const n=Math.ceil(Math.hypot(p.x-last.x,p.y-last.y)/24);for(let i=1;i<=n;i++)dab(last.x+(p.x-last.x)*i/n,last.y+(p.y-last.y)*i/n)}else dab(p.x,p.y);
-    last=p;hero.classList.add("touched");
-  });
-  ["pointerleave","pointerup","pointercancel"].forEach(t=>hero.addEventListener(t,()=>last=null));
-  btn.onclick=()=>{const on=hero.classList.toggle("done");btn.setAttribute("aria-pressed",on);btn.textContent=on?"Start over":"Show the intern";if(!on)paint()};
-  addEventListener("resize",()=>{if(Math.abs(hero.getBoundingClientRect().width-w)>1&&!hero.classList.contains("done"))paint()});
-  im.onload=paint;im.src=first.currentSrc||first.src;
-})();
-</script>
-<script src="fx.js?v=27" defer></script>
+<script src="sprite.js?v=38"></script>
+<script src="data.js?v=38"></script>
+<script src="home.js?v=38"></script>
 </body>
 </html>
