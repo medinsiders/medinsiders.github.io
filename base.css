@@ -13,7 +13,6 @@ button{font:inherit;color:inherit}
 .wrap{max-width:1068px;margin:0 auto;padding:0 22px}
 h2{font-size:clamp(32px,4.4vw,48px);line-height:1.08;letter-spacing:-.003em;color:var(--ink);margin:0 0 28px}
 section{padding-top:90px}
-.eyebrow{display:inline-block;font-size:21px;font-weight:600;letter-spacing:.011em;color:var(--ink);margin:0 0 8px}
 .gt{color:inherit}
 
 /* icons */
@@ -72,7 +71,6 @@ section{padding-top:90px}
 .card .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .type{font-size:12px;font-weight:600;color:#b64400;letter-spacing:-.01em}
 .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:9999px}
-.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .s-later{color:#222;background:#e6e6e2}
 .card .chk{margin:-6px 0 0;font-size:12px;color:var(--muted)}
 .s-open{color:var(--ok);background:var(--okbg)}.s-soon{color:var(--warn);background:var(--warnbg)}.s-closed,.s-na{color:var(--bad);background:var(--badbg)}
@@ -138,7 +136,6 @@ h1,h2,h3{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-weigh
 .wrap{max-width:1300px;padding:0 24px}
 h2{font-size:clamp(32px,4.4vw,48px);line-height:1.1;max-width:20ch}
 section{padding-top:88px}
-.eyebrow{font-size:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
 .nav{background:#fff;border-bottom:1px solid var(--line);-webkit-backdrop-filter:none;backdrop-filter:none}
 .nav .in{max-width:1400px;height:76px}
 .nav .logo{width:150px}
@@ -169,7 +166,7 @@ section{padding-top:88px}
 .badge{font-size:16px;padding:5px 12px}
 .card .chk{font-size:16px}
 .lg{border:1px solid var(--line)}
-.fact{background:linear-gradient(180deg,#fff,var(--tint));border:1px solid var(--line);border-radius:12px}
+.fact{background:var(--tint);border:0;border-radius:12px}
 .fact .ico{color:var(--blue)}
 .fact small{font-size:16px;color:var(--muted)}
 .fact span{font-size:20px;font-weight:700;color:var(--blue)}
@@ -255,3 +252,40 @@ footer .ml{color:#fff}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .hero :focus-visible,.band :focus-visible,footer :focus-visible,.cta-card :focus-visible,.thead :focus-visible{outline-color:#fff}
 @media (max-width:760px){.nav .act{display:none}}
+/* Interaction polish from Pavan's UI/UX references: motion only answers a click or a change,
+   enters in ~200ms with ease-out, exits faster, starts at .95 not 0, never bounces. */
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+.door b,.rating b,.grp small,.chip{font-variant-numeric:tabular-nums}
+.btn,.chip,.lk,.seg button,.sort button,.allbtn,.soc,.embed .pl{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .12s ease-out}
+.btn:active,.chip:active,.lk:active,.seg button:active,.sort button:active,.allbtn:active,.soc:active{transform:scale(.97)}
+@keyframes popIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes rowIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.dlg[open]{animation:popIn .2s cubic-bezier(.2,.8,.2,1)}
+.dlg[open]::backdrop{animation:fadeIn .2s ease-out}
+.faq details[open] .a,.revs[open] .rlist{animation:fadeIn .2s ease-out}
+.tlist>*{animation:rowIn .24s cubic-bezier(.2,.8,.2,1) both}
+.tlist>:nth-child(2){animation-delay:30ms}.tlist>:nth-child(3){animation-delay:60ms}.tlist>:nth-child(4){animation-delay:90ms}
+.tlist>:nth-child(5){animation-delay:120ms}.tlist>:nth-child(n+6){animation-delay:150ms}
+.embed:hover .pl,.embed:focus-visible .pl{transform:scale(1.06)}
+/* unslop pass (25 Nov 2026): one spacing rhythm, one blue, sentence-case labels, deadline as the signature */
+section{padding-top:96px}
+@media (max-width:760px){section{padding-top:64px}}
+.card{gap:14px;box-shadow:none}
+.card:hover{border-color:#b9c7dd}
+.date{flex:none;min-width:96px;text-align:center;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.date b{display:block;padding:10px 12px 0;font-family:"Source Serif 4",Georgia,serif;font-size:38px;font-weight:600;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.date b.nd{color:var(--muted)}
+.date span{display:block;padding:2px 10px 8px;font-size:16px;color:var(--muted)}
+.date em{display:block;padding:5px 8px;font-style:normal;font-size:16px;font-weight:600;border-top:1px solid var(--line)}
+.date.s-open em{background:#e8f5ee;color:#05603a}
+.date.s-soon em{background:#fdf1dc;color:#93370d}
+.date.s-later em{background:var(--tint);color:var(--blue)}
+.date.s-closed em,.date.s-na em{background:var(--tile);color:#3f4652}
+.kv{margin:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.kv div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:600;color:var(--ink);text-align:right}
+.kv dd.na{font-weight:400;color:var(--muted)}
+.card .links{margin-top:auto;padding-top:4px}

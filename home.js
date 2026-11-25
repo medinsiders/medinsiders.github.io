@@ -58,7 +58,7 @@ function row(track,items,title,src,thumb,label){
   return el;
 }
 const st=row("#shorts-track",S,"Medinsider YouTube Short",id=>"https://www.youtube-nocookie.com/embed/"+id+"?rel=0&playsinline=1&autoplay=1",id=>"https://i.ytimg.com/vi/"+id+"/oar2.jpg","Plays from YouTube");
-const rt=row("#reels-track",R,"Medinsider Instagram reel",id=>"https://www.instagram.com/reel/"+id+"/embed",null,"Opens Instagram reel");
+const rt=row("#reels-track",R,"Medinsider Instagram reel",id=>"https://www.instagram.com/reel/"+id+"/embed",id=>"img/reels/"+id+".jpg","Plays from Instagram");
 [["#sl","#sr",st],["#rl","#rr",rt]].forEach(([l,r,t])=>{const step=()=>((t.querySelector(":scope>:not([hidden])")||{}).offsetWidth||326)+14;$(l).onclick=()=>t.scrollBy({left:-step(),behavior:"smooth"});$(r).onclick=()=>t.scrollBy({left:step(),behavior:"smooth"})});
 
 // show 6 videos first; a filter or "Show all" reveals the rest

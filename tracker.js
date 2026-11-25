@@ -16,20 +16,22 @@ function status(o){
   const days=Math.ceil((new Date(o.deadline+"T23:59:59")-new Date())/864e5);
   return days<0?"closed":days<=14?"soon":"open";
 }
-const fact=(icon,label,val,cls="")=>`<div class="fact ${cls}">${ic(icon)}<small>${label}</small>${val?`<span>${esc(val)}</span>`:`<span class="na">Not stated</span>`}</div>`;
 
 function card(o,s){
   const apply=o.applyText||(o.deadline?fmt(o.deadline):null);
   const fee=o.fee!==undefined?o.fee:o.pay;
   const mark=o.logo?`<span class="lg${o.dark?" dark":""}"><img src="${esc(o.logo)}" alt="" loading="lazy"></span>`:`<span class="lg mono" aria-hidden="true">${esc(o.mono||(o.short||o.org||"?").slice(0,3).toUpperCase())}</span>`;
+  // Signature element: the deadline as a calendar block, because the date is what students come for.
+  const d=o.deadline?new Date(o.deadline+"T12:00:00"):null;
+  const date=d?`<b>${d.getDate()}</b><span>${d.toLocaleDateString("en-GB",{month:"short"})} ${d.getFullYear()}</span>`:`<b class="nd">—</b>`;
+  const rows=[];
+  if(o.applyText)rows.push([kind=="conferences"?"Deadline":"Apply by",o.applyText]);
+  if(kind=="conferences")rows.push(["Registration fee",fee]);
   return `<article class="card" data-s="${s}">
-    <div class="top">${mark}<span class="badge s-${s}">${LABEL[s]}</span></div>
+    <div class="top">${mark}<div class="date s-${s}" aria-label="${esc(kind=="conferences"?"Deadline":"Apply by")}: ${esc(apply||"not stated")}, ${LABEL[s]}">${date}<em>${LABEL[s]}</em></div></div>
     <h3>${esc(o.name)}</h3>
     <p class="org">${ic("pin")}${esc([o.org,o.place].filter(Boolean).join(" · "))}</p>
-    <div class="facts">
-      ${fact("clock",kind=="conferences"?"Deadline":"Apply by",apply,kind=="conferences"?"":"wide")}
-      ${kind=="conferences"?fact("rupee","Registration fee",fee):""}
-    </div>
+    ${rows.length?`<dl class="kv">${rows.map(([k,v])=>`<div><dt>${k}</dt><dd${v?"":` class="na"`}>${esc(v||"Not stated")}</dd></div>`).join("")}</dl>`:""}
     <div class="links">${(o.links||[]).map(l=>`<a class="lk" href="${esc(l.u)}" target="_blank" rel="noopener">${ic(l.k,l.k)}${esc(l.t)}</a>`).join("")}</div>
     ${o.checked?`<p class="chk">Checked on the official site, ${fmt(o.checked)}</p>`:""}
   </article>`;
